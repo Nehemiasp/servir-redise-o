@@ -1,0 +1,76 @@
+/* Única fuente de colores, tipografía, espaciado y radios. Ver PLAN-VISUAL.md. */
+
+@font-face {
+  font-family: 'Archivo Servir';
+  src: url('/fonts/archivo-800.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Atkinson Servir';
+  src: url('/fonts/atkinson-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Atkinson Servir';
+  src: url('/fonts/atkinson-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Color: 6 tokens de paleta */
+  --cian-servir: #00ccff; /* superficies grandes; nunca texto sobre fondo claro */
+  --tinta: #051223; /* texto y bordes fuertes */
+  --papel: #f3f9fc; /* fondo general */
+  --blanco: #ffffff; /* superficies elevadas, anillo del sello */
+  --cian-texto: #00607c; /* enlaces y acento de texto sobre claro (6.7:1 sobre papel) */
+  --error: #b3261e; /* errores, siempre con texto */
+
+  /* Derivados de tinta y papel (valores fijos para navegadores sin color-mix) */
+  --texto-2: #3e4c5c; /* texto secundario, 8.4:1 sobre papel */
+  --borde-campo: #5a7a8c; /* bordes de campos, 4.3:1 sobre papel */
+  --linea: #c6d9e3; /* líneas decorativas de estructura */
+
+  /* Tipografía */
+  --f-titulo: 'Archivo Servir', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+  --f-cuerpo: 'Atkinson Servir', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+
+  /* Escala 1.25 desde 18 px */
+  --t-s: 1rem; /* 16, metadatos */
+  --t-0: 1.125rem; /* 18, cuerpo */
+  --t-1: 1.4rem; /* 22 */
+  --t-2: 1.75rem; /* 28 */
+  --t-3: 2.2rem; /* 35 */
+  --t-4: 2.75rem; /* 44 */
+  --t-5: 3.45rem; /* 55 */
+  --t-6: 4.3rem; /* 69 */
+  --t-7: 5.4rem; /* 86 */
+  --t-8: 6.75rem; /* 108 */
+
+  /* Espaciado, múltiplos de 8 */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 1rem;
+  --s-4: 1.5rem;
+  --s-5: 2rem;
+  --s-6: 3rem;
+  --s-7: 4rem;
+  --s-8: 6rem;
+  --s-9: 8rem;
+  --seccion: clamp(3rem, 8vw, 6rem);
+
+  /* Radios: rectos en bloques, 8 px en controles, círculo solo en el sello */
+  --r-0: 0;
+  --r-1: 0.5rem;
+
+  --ancho: 75rem; /* 1200 */
+  --gutter: clamp(1rem, 4vw, 2rem);
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur: 200ms;
+}

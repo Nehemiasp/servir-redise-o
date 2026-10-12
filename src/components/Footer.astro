@@ -1,0 +1,25 @@
+---
+import { NAV, SITE } from '../config';
+---
+<footer class="site-footer on-tinta">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/brand/sello.svg" alt="" width="64" height="64" loading="lazy" />
+        <div>
+          <strong>SERVIR</strong>
+          <span>Servir es Guate, y Guate es Servir</span>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="Pie de página">
+        <ul>
+          {NAV.map((n) => <li><a href={n.href}>{n.texto}</a></li>)}
+          {SITE.redes.map((r) => <li><a href={r.url} target="_blank" rel="noopener noreferrer">{r.nombre}</a></li>)}
+        </ul>
+      </nav>
+    </div>
+    <div class="legal">
+      <p>Propuesta de rediseño no oficial. El sitio oficial del Partido SERVIR es <a href="https://partidoservir.com/" rel="noopener noreferrer">partidoservir.com</a>.</p>
+    </div>
+  </div>
+</footer>

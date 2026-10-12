@@ -1,0 +1,11 @@
+---
+// Un solo set de íconos: trazo de 2 px, estilo Lucide.
+interface Props { name: 'menu' | 'x' | 'externo'; class?: string }
+const { name, class: cls } = Astro.props;
+const paths: Record<string, string> = {
+  menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+  x: '<path d="M6 6l12 12M18 6L6 18"/>',
+  externo: '<path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
+};
+---
+<svg class={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" set:html={paths[name]} />

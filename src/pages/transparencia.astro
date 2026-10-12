@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import { porAnio } from '../data/transparencia';
+
+const etapas = [
+  { id: 'proselitismo', nombre: 'Etapa de proselitismo', sub: 'Por trimestre y año', vacio: 'Todavía no hay informes de la etapa de proselitismo.' },
+  { id: 'campana', nombre: 'Etapa de campaña', sub: 'Por mes y año', vacio: 'Aquí se publicarán los informes mensuales de la etapa de campaña.' },
+] as const;
+---
+<Base
+  title="Transparencia de SERVIR: informes financieros del partido"
+  description="Consulta los informes financieros oficiales del Partido SERVIR por año, trimestre y mes. Cada reporte se publica para que la ciudadanía lo revise."
+>
+  <div class="pagina-cabecera">
+    <div class="wrap">
+      <h1>Transparencia</h1>
+      <p class="lead">Publicamos cada reporte financiero del partido. Nada que esconder, todo para que la ciudadanía sepa cómo se administran los recursos.</p>
+    </div>
+  </div>
+
+  <section class="seccion" aria-label="Informes financieros">
+    <div class="wrap">
+      <div class="tabs" role="tablist" aria-label="Etapa del informe" id="tabs">
+        {etapas.map((e, i) => (
+          <button class="tab" role="tab" type="button" id={`tab-${e.id}`} aria-controls={`panel-${e.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>
+            {e.nombre}<small>{e.sub}</small>
+          </button>
+        ))}
+      </div>
+
+      {etapas.map((e, i) => {
+        const anios = porAnio(e.id);
+        return (
+          <div class="panel" role="tabpanel" id={`panel-${e.id}`} aria-labelledby={`tab-${e.id}`}>
+            <h2 class="solo-sin-js">{e.nombre}</h2>
+            {anios.length === 0 ? (
+              <div class="vacio"><p>{e.vacio}</p></div>
+            ) : (
+              anios.map((a) => (
+                <div class="anio">
+                  <h3>{a.anio}</h3>
+                  <div>
+                    {a.informes.map((inf) => (
+                      <article class="informe">
+                        <h4>{inf.titulo}</h4>
+                        <div class="acciones">
+                          {inf.pdf ? (
+                            <>
+                              <a class="btn btn--ghost" href={inf.pdf} target="_blank" rel="noopener noreferrer">Ver PDF</a>
+                              <a class="btn" href={inf.pdf} download>Descargar PDF{inf.peso ? ` (${inf.peso})` : ''}</a>
+                            </>
+                          ) : (
+                            <span class="pendiente">[PDF del informe]</span>
+                          )}
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        );
+      })}
+    </div>
+  </section>
+</Base>
+
+<script>
+  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('#tabs [role=tab]'));
+  const panel = (t: HTMLElement) => document.getElementById(t.getAttribute('aria-controls')!)!;
+  const activar = (t: HTMLButtonElement, foco = false) => {
+    tabs.forEach((x) => {
+      const on = x === t;
+      x.setAttribute('aria-selected', String(on));
+      x.tabIndex = on ? 0 : -1;
+      panel(x).hidden = !on;
+    });
+    if (foco) t.focus();
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => activar(t));
+    t.addEventListener('keydown', (e) => {
+      const k = (e as KeyboardEvent).key;
+      if (k === 'ArrowRight') activar(tabs[(i + 1) % tabs.length], true);
+      if (k === 'ArrowLeft') activar(tabs[(i - 1 + tabs.length) % tabs.length], true);
+    });
+  });
+  if (tabs.length) activar(tabs[0]);
+</script>

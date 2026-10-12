@@ -1,0 +1,266 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { SITE } from '../config';
+import { grupos, totalProgramas } from '../data/programas';
+import { paradas } from '../data/ruta';
+
+const mapa = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.direccion)}`;
+---
+<Base
+  title="SERVIR: partido político por el campo y la gente, Guatemala"
+  description="SERVIR es un partido político de Guatemala. Conoce sus 13 programas para mujeres, adultos mayores, jóvenes y productores, y afíliate en línea."
+>
+  <!-- 1. Hero -->
+  <section class="hero" aria-labelledby="hero-titulo">
+    <div class="wrap">
+      <div class="hero-texto">
+        <p class="hero-kicker">Partido político por el campo y la gente</p>
+        <h1 id="hero-titulo">
+          Servir es Guate.
+          <span class="y">Y Guate es SERVIR.</span>
+        </h1>
+        <p class="lead">{totalProgramas === 13 ? 'Trece' : totalProgramas} programas para mujeres, adultos mayores, niñez, jóvenes, productores y migrantes.</p>
+        <div class="hero-acciones">
+          <a class="btn" href={SITE.afiliacionUrl} target="_blank" rel="noopener noreferrer">Afiliarme en línea<Icon name="externo" class="ext" /><span class="sr-only"> (se abre el portal de afiliación)</span></a>
+          <a href="#programas">Ver los {totalProgramas} programas</a>
+        </div>
+      </div>
+      <div class="sello">
+        <img src="/brand/sello.svg" alt="" width="592" height="592" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Mensaje del Secretario General -->
+  <section class="seccion seccion--blanca" aria-labelledby="mensaje-titulo">
+    <div class="wrap mensaje">
+      <figure>
+        <div class="foto-slot"><span class="pendiente">[Foto del Secretario General]</span></div>
+        <figcaption class="credito">
+          Carlos Pineda
+          <small>Secretario General, Partido SERVIR</small>
+        </figcaption>
+      </figure>
+      <div>
+        <h2 id="mensaje-titulo">Servir a Guatemala con dignidad y compromiso</h2>
+        <p class="lead mt-4">
+          Hoy damos un paso seguro hacia la consolidación de un proyecto que nace con una sola convicción: servir a nuestro país con dignidad, responsabilidad y compromiso auténtico. El Partido SERVIR ha sido creado para poner al ciudadano en el centro de la acción pública. Queremos construir un Estado moderno, cercano, justo y eficiente, donde cada guatemalteco tenga la oportunidad de desarrollarse en libertad, en un entorno de paz y prosperidad.
+        </p>
+        <blockquote class="cita">Menos burocracia, más resultados; menos privilegios, más oportunidades; menos dependencia, más responsabilidad.</blockquote>
+        <a class="link-fuerte link-cian" href={SITE.mensajeOriginalUrl} target="_blank" rel="noopener noreferrer">Leer el mensaje original (imagen)<Icon name="externo" class="ext" /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Qué es SERVIR -->
+  <section class="seccion" id="que-es" aria-labelledby="que-es-titulo">
+    <div class="wrap">
+      <div class="cols cols--12">
+        <div class="col-a">
+          <h2 id="que-es-titulo">¿Qué es SERVIR?</h2>
+          <p class="lead mt-4">
+            Somos un proyecto político que pone al ciudadano en el centro de las decisiones públicas, promoviendo <strong>libertad, responsabilidad, prosperidad y resultados</strong>.
+          </p>
+          <ul class="valores">
+            <li>Honestidad y transparencia</li>
+            <li>Cercanía con la gente</li>
+            <li>Resultados, no promesas</li>
+          </ul>
+        </div>
+        <div class="col-b">
+          <ul class="verbos">
+            <li>SERVIR a la gente</li>
+            <li>SERVIR con transparencia y eficiencia</li>
+            <li>SERVIR para generar resultados</li>
+            <li>SERVIR con responsabilidad y honestidad</li>
+            <li>SERVIR unidos por una mejor Guatemala</li>
+          </ul>
+          <p class="cierre-verbos">SERVIR es trabajar hoy por el país que todos queremos mañana.</p>
+        </div>
+      </div>
+
+      <div class="mv">
+        <div>
+          <h3>Nuestra misión</h3>
+          <p>SERVIR es una organización política comprometida con construir un Estado moderno, eficiente y cercano a la gente. Promovemos una gestión pública basada en resultados, transparencia, innovación y responsabilidad ciudadana.</p>
+        </div>
+        <div>
+          <h3>Nuestra visión</h3>
+          <p>Visualizamos una Guatemala donde el Estado sea facilitador del desarrollo y no un obstáculo para el crecimiento. Una nación segura, productiva y libre, donde cada ciudadano tenga acceso a oportunidades reales para prosperar mediante su esfuerzo, talento y trabajo.</p>
+        </div>
+      </div>
+
+      <ul class="menos-mas" aria-label="Lo que SERVIR propone">
+        <li><span class="menos">Menos burocracia</span><span>Más oportunidades</span></li>
+        <li><span class="menos">Menos privilegios</span><span>Más resultados</span></li>
+        <li><span class="menos">Menos dependencia</span><span>Más responsabilidad</span></li>
+        <li><span>Más libertad</span><span>Más prosperidad</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. Programas -->
+  <section class="seccion seccion--blanca" id="programas" aria-labelledby="programas-titulo">
+    <div class="wrap">
+      <h2 id="programas-titulo">Un plan claro para un país que avanza</h2>
+      <p class="lead mb-6">
+        {totalProgramas} programas, ordenados según a quién ayudan. Abre cada uno para ver quién puede recibirlo y qué recibe.
+      </p>
+      {grupos.map((g) => (
+        <div class="grupo">
+          <h3>{g.titulo}</h3>
+          <div>
+            {g.programas.map((p) => (
+              <details class="programa" id={p.slug}>
+                <summary>
+                  <h4>{p.titulo}</h4>
+                  <p>{p.resumen}</p>
+                </summary>
+                <div class="programa-detalle">
+                  <div>
+                    <h5>{p.rotuloCondiciones ?? 'Condiciones'}</h5>
+                    <ul>{p.condiciones.map((c) => <li>{c}</li>)}</ul>
+                  </div>
+                  <div>
+                    <h5>Beneficios</h5>
+                    <ul>{p.beneficios.map((b) => <li>{b}</li>)}</ul>
+                  </div>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 5. Ruta del tractor -->
+  <section class="seccion" id="recorrido" aria-labelledby="recorrido-titulo">
+    <div class="wrap">
+      <h2 id="recorrido-titulo">Recorrido del tractor</h2>
+      <p class="lead">Conoce nuestras ideas, actividades y el trabajo que hacemos por Guatemala.</p>
+      <ol class="ruta">
+        {paradas.map((p) => (
+          <li class="parada">
+            <span class="antes">El tractor llegó a</span>
+            <div class="lugar">{p.lugar}</div>
+            {p.video && (
+              <button class="btn btn--ghost abrir-video" type="button" data-video={p.video} data-lugar={p.lugar}>
+                Ver video<span class="sr-only">: el tractor llegó a {p.lugar}</span>
+              </button>
+            )}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6. Nuestra gente -->
+  <section class="seccion seccion--blanca gente" aria-labelledby="gente-titulo">
+    <div class="wrap">
+      <h2 id="gente-titulo">Nuestra gente</h2>
+      <p class="lead mb-5">
+        El corazón de SERVIR son las familias guatemaltecas. Sus historias, su esfuerzo y sus sueños son el verdadero motor del cambio.
+      </p>
+      <blockquote>Servir es cuidar tus siembras para cosechar tus sueños.</blockquote>
+      <p>Tu esfuerzo diario, tu fe y tus madrugadas son la verdadera fuerza del país. Hagamos que el gobierno empiece a parecerse a su gente.</p>
+    </div>
+  </section>
+
+  <!-- 7. Tu propuesta -->
+  <section class="seccion" aria-labelledby="propuesta-titulo">
+    <div class="wrap cta-banda cta-banda--papel">
+      <h2 id="propuesta-titulo">Tu voz construye el futuro de Guatemala</h2>
+      <p class="lead">En SERVIR creemos que las mejores soluciones nacen al escuchar a la ciudadanía. Cada propuesta que compartas será recibida con atención, respeto y compromiso.</p>
+      <div class="cta-acciones">
+        <a class="btn" href="/propuesta">Enviar mi propuesta</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Afíliate -->
+  <section class="seccion seccion--cian" id="afiliate" aria-labelledby="afiliate-titulo">
+    <div class="wrap cta-banda">
+      <h2 id="afiliate-titulo">Afíliate a SERVIR</h2>
+      <p class="lead">Sé parte de la fuerza ciudadana que está reiniciando Guate. El proceso es 100% en línea, rápido y seguro a través de nuestro portal oficial de auto-afiliación.</p>
+      <div class="cta-acciones">
+        <a class="btn" href={SITE.afiliacionUrl} target="_blank" rel="noopener noreferrer">Afiliarme en línea<Icon name="externo" class="ext" /><span class="sr-only"> (se abre el portal de afiliación)</span></a>
+        <a href="#programas">Ver los programas</a>
+      </div>
+      <p class="aviso">Al hacer clic saldrás a autoafiliacion.servirgt.org.</p>
+    </div>
+  </section>
+
+  <!-- 9. Contacto -->
+  <section class="seccion contacto" id="contacto" aria-labelledby="contacto-titulo">
+    <div class="wrap">
+      <h2 id="contacto-titulo">Hablemos</h2>
+      <dl>
+        <div>
+          <dt>Sede central, Ciudad de Guatemala</dt>
+          <dd>
+            {SITE.direccion}<br />
+            <a href={mapa} target="_blank" rel="noopener noreferrer" class="enlace-chico">Ver en Google Maps<Icon name="externo" class="ext" /></a>
+          </dd>
+        </div>
+        <div>
+          <dt>Correo electrónico</dt>
+          <dd><a href={`mailto:${SITE.correo}`}>{SITE.correo}</a></dd>
+        </div>
+        <div>
+          <dt>Teléfono</dt>
+          <dd>
+            {SITE.telefono ? <a href={`tel:${SITE.telefono}`}>{SITE.telefono}</a> : <span class="pendiente">[Teléfono del partido]</span>}
+            {SITE.whatsapp && (
+              <div><a href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent('Hola, quiero más información sobre el partido SERVIR')}`} target="_blank" rel="noopener noreferrer" class="enlace-chico">Escribir por WhatsApp<Icon name="externo" class="ext" /></a></div>
+            )}
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <dialog class="video" id="video-dialog" aria-labelledby="video-titulo">
+    <form method="dialog">
+      <h2 id="video-titulo">Video</h2>
+      <button class="btn btn--ghost" value="cerrar">Cerrar</button>
+    </form>
+    <div id="video-contenedor"></div>
+  </dialog>
+</Base>
+
+<script>
+  // Video bajo demanda: no se descarga nada de TikTok hasta que la persona lo pide.
+  const dialog = document.getElementById('video-dialog') as HTMLDialogElement | null;
+  const cont = document.getElementById('video-contenedor');
+  const titulo = document.getElementById('video-titulo');
+  document.querySelectorAll<HTMLButtonElement>('.abrir-video').forEach((b) =>
+    b.addEventListener('click', () => {
+      if (!dialog || !cont || !titulo) return;
+      titulo.textContent = `El tractor llegó a ${b.dataset.lugar}`;
+      const f = document.createElement('iframe');
+      f.src = `https://www.tiktok.com/embed/v2/${b.dataset.video}`;
+      f.title = titulo.textContent;
+      f.allow = 'fullscreen; picture-in-picture';
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      cont.replaceChildren(f);
+      dialog.showModal();
+    }),
+  );
+  dialog?.addEventListener('close', () => cont?.replaceChildren());
+  dialog?.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+
+  // Abrir el programa que viene en la dirección (#slug).
+  const abrirPorHash = () => {
+    const el = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+    if (el instanceof HTMLDetailsElement) {
+      el.open = true;
+      el.scrollIntoView();
+    }
+  };
+  abrirPorHash();
+  addEventListener('hashchange', abrirPorHash);
+</script>

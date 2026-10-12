@@ -1,0 +1,48 @@
+---
+import Icon from './Icon.astro';
+import { NAV, SITE } from '../config';
+const actual = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="SERVIR, ir al inicio">
+      <img src="/brand/sello.svg" alt="" width="48" height="48" />
+      <span>SERVIR</span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal">
+      <span class="sr-only">Menú</span>
+      <Icon name="menu" class="i-menu" />
+      <Icon name="x" class="i-x" />
+    </button>
+    <nav class="nav" id="menu-principal" aria-label="Principal">
+      <ul>
+        {NAV.map((n) => (
+          <li>
+            <a href={n.href} aria-current={actual === n.href ? 'page' : undefined}>{n.texto}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <a class="btn" href={SITE.afiliacionUrl} target="_blank" rel="noopener noreferrer">Afiliarme<Icon name="externo" class="ext" /><span class="sr-only"> (se abre el portal de afiliación)</span></a>
+  </div>
+</header>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.menu-btn');
+  const nav = document.getElementById('menu-principal');
+  if (btn && nav) {
+    const cerrar = () => btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', () =>
+      btn.setAttribute('aria-expanded', String(btn.getAttribute('aria-expanded') !== 'true')),
+    );
+    nav.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a')) cerrar();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+        cerrar();
+        btn.focus();
+      }
+    });
+  }
+</script>

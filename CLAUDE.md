@@ -360,12 +360,16 @@ Todo lo que sigue es específico de este proyecto. Lo anterior es el estándar y
 - **Restricciones técnicas:** ninguna dada. El sitio actual está hecho con Lovable (React). Se propone Astro estático con CSS con tokens y JavaScript mínimo, por rendimiento en datos móviles. El destino del formulario de propuestas está pendiente.
 - **Fecha de entrega:** sin fecha.
 
+**Estado:** plan visual aprobado y sitio construido (ver `ENTREGA.md` y `PENDIENTES.md`).
+
 ## Decisiones tomadas por el usuario en la conversación
 
 - Acción principal: afiliarse.
 - Alcance: las 4 páginas actuales.
 - Cifras «33K+ afiliados», «23 distritos» y «100% compromiso»: se quitan (no tienen respaldo).
 - La página «Tu propuesta» la redacta y diseña Claude.
+- Plan visual (`PLAN-VISUAL.md`): aprobado.
+- Condiciones y beneficios de los 13 programas: entregados por el usuario (1 a 4 en capturas, 5 a 13 en texto).
 
 ## Decisiones tomadas sin confirmación
 

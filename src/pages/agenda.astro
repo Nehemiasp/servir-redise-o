@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import { separarEventos, formatearFecha } from '../data/agenda';
+
+const { proximos, pasados } = separarEventos();
+const parrafos = (t: string) => t.split(/\n\s*\n/);
+---
+<Base
+  title="Agenda de SERVIR: jornadas, reuniones y encuentros"
+  description="Fechas y lugares de las actividades del partido SERVIR en Guatemala: jornadas de formación, reuniones y encuentros con la ciudadanía y sus bases."
+>
+  <div class="pagina-cabecera">
+    <div class="wrap">
+      <h1>Agenda de SERVIR</h1>
+      <p class="lead">Acompáñanos en nuestras actividades, reuniones y encuentros con la ciudadanía.</p>
+    </div>
+  </div>
+
+  <section class="seccion" aria-labelledby="proximos">
+    <div class="wrap">
+      <h2 id="proximos">Próximos eventos</h2>
+      {proximos.length === 0 ? (
+        <div class="vacio">
+          <p><strong>No hay eventos programados por ahora.</strong></p>
+          <p>Cuando haya uno, aparecerá aquí con su fecha y su lugar. Mientras tanto, mira <a href="/#recorrido">dónde ha estado el tractor</a>.</p>
+        </div>
+      ) : (
+        <ol class="ruta ruta--v">
+          {proximos.map((e) => (
+            <li class="parada evento">
+              <p class="fecha">{formatearFecha(e.fecha)}</p>
+              <h3>{e.titulo}</h3>
+              <p class="donde">{e.lugar}</p>
+              <details>
+                <summary>Leer la descripción</summary>
+                {parrafos(e.descripcion).map((p) => <p>{p}</p>)}
+              </details>
+            </li>
+          ))}
+        </ol>
+      )}
+    </div>
+  </section>
+
+  <section class="seccion seccion--blanca" aria-labelledby="pasados">
+    <div class="wrap">
+      <h2 id="pasados">Eventos pasados</h2>
+      <ol class="ruta ruta--v">
+        {pasados.map((e) => (
+          <li class="parada evento">
+            <p class="fecha">{formatearFecha(e.fecha)}</p>
+            <h3>{e.titulo}</h3>
+            <p class="donde">{e.lugar}</p>
+            <details>
+              <summary>Leer la descripción</summary>
+              {parrafos(e.descripcion).map((p) => <p>{p}</p>)}
+            </details>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,163 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+
+const departamentos = [
+  'Alta Verapaz', 'Baja Verapaz', 'Chimaltenango', 'Chiquimula', 'El Progreso', 'Escuintla', 'Guatemala',
+  'Huehuetenango', 'Izabal', 'Jalapa', 'Jutiapa', 'Petén', 'Quetzaltenango', 'Quiché', 'Retalhuleu',
+  'Sacatepéquez', 'San Marcos', 'Santa Rosa', 'Sololá', 'Suchitepéquez', 'Totonicapán', 'Zacapa',
+];
+---
+<Base
+  title="Tu propuesta | Comparte tu idea para Guatemala con SERVIR"
+  description="Cuéntale al partido SERVIR qué cambiarías en Guatemala. Cada propuesta se recibe con atención y respeto, se analiza y las mejores ideas se impulsan."
+>
+  <div class="pagina-cabecera">
+    <div class="wrap">
+      <h1>Tu voz construye el futuro de Guatemala</h1>
+      <p class="lead">En SERVIR creemos que las mejores soluciones nacen al escuchar a la ciudadanía. Cada propuesta que compartas será recibida con atención, respeto y compromiso.</p>
+    </div>
+  </div>
+
+  <div class="wrap propuesta-grid">
+    <div>
+      <p>Nuestro equipo analizará cada iniciativa y pondrá su mayor esfuerzo para impulsar aquellas que contribuyan al desarrollo de Guatemala y al bienestar de sus habitantes. Porque un país se construye escuchando a su gente, trabajando juntos y transformando las buenas ideas en acciones reales.</p>
+      <h2 class="h2-menor mt-6">Qué pasa con tu propuesta</h2>
+      <ol class="pasos">
+        <li><strong>Comparte tu idea</strong>Describe una propuesta o iniciativa que ayude a mejorar el país.</li>
+        <li><strong>La analizamos</strong>Nuestro equipo la revisa con seriedad y respeto por tu voz.</li>
+        <li><strong>La impulsamos</strong>Las mejores ideas se convierten en acciones e iniciativas de ley.</li>
+      </ol>
+    </div>
+
+    <div>
+      <form class="form" id="form-propuesta" method="post" action={SITE.formEndpoint || undefined} data-endpoint={SITE.formEndpoint} novalidate>
+        <h2 class="h2-menor">Escribe tu propuesta</h2>
+
+        <div class="campo">
+          <label for="f-propuesta">Tu propuesta</label>
+          <span class="ayuda" id="f-propuesta-ayuda">Cuéntanos qué cambiarías y por qué.</span>
+          <textarea id="f-propuesta" name="propuesta" required maxlength="2000" aria-describedby="f-propuesta-ayuda f-propuesta-error"></textarea>
+          <p class="error" id="f-propuesta-error">Escribe tu propuesta para poder enviarla.</p>
+        </div>
+
+        <div class="campo">
+          <label for="f-depto">Departamento <span class="soft">(opcional)</span></label>
+          <select id="f-depto" name="departamento" autocomplete="address-level1">
+            <option value="">Selecciona un departamento</option>
+            {departamentos.map((d) => <option value={d}>{d}</option>)}
+            <option value="Fuera de Guatemala">Vivo fuera de Guatemala</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="f-nombre">Tu nombre <span class="soft">(opcional)</span></label>
+          <input id="f-nombre" name="nombre" type="text" autocomplete="name" />
+        </div>
+
+        <div class="fila-2">
+          <div class="campo">
+            <label for="f-tel">Teléfono <span class="soft">(opcional)</span></label>
+            <input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="f-tel-error" />
+            <p class="error" id="f-tel-error">Escribe un teléfono de al menos 8 dígitos, por ejemplo 5555 1234.</p>
+          </div>
+          <div class="campo">
+            <label for="f-correo">Correo electrónico <span class="soft">(opcional)</span></label>
+            <input id="f-correo" name="correo" type="email" autocomplete="email" aria-describedby="f-correo-error" />
+            <p class="error" id="f-correo-error">Escribe un correo válido, por ejemplo nombre@correo.com.</p>
+          </div>
+        </div>
+
+        <div class="trampa" aria-hidden="true">
+          <label>No llenar este campo<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <p class="aviso-form">Los datos personales son opcionales. <span class="pendiente">[Aviso de privacidad del partido]</span></p>
+
+        <div>
+          <button class="btn" type="submit" id="f-enviar">Enviar mi propuesta</button>
+        </div>
+
+        <div class="estado estado--error" id="f-error" role="alert" hidden>
+          <strong>No pudimos enviar tu propuesta</strong>
+          <span>Revisa tu conexión e inténtalo de nuevo. También puedes escribir a <a href={`mailto:${SITE.correo}`}>{SITE.correo}</a>.</span>
+        </div>
+      </form>
+
+      <div class="estado" id="f-exito" role="status" tabindex="-1" hidden>
+        <strong>Propuesta enviada</strong>
+        <p>¡Gracias por ser parte del cambio!</p>
+        <p class="mt-4"><button class="btn btn--ghost" type="button" id="f-otra">Enviar otra propuesta</button></p>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script>
+  const form = document.getElementById('form-propuesta') as HTMLFormElement | null;
+  if (form) {
+    const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+    const enviar = $<HTMLButtonElement>('f-enviar');
+    const errorGlobal = $('f-error');
+    const exito = $('f-exito');
+
+    const reglas: Record<string, (v: string) => boolean> = {
+      'f-propuesta': (v) => v.trim().length > 0,
+      'f-tel': (v) => v.trim() === '' || v.replace(/\D/g, '').length >= 8,
+      'f-correo': (v) => v.trim() === '' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+    };
+    const validar = (id: string) => {
+      const campo = $<HTMLInputElement>(id);
+      const ok = reglas[id](campo.value);
+      campo.setAttribute('aria-invalid', String(!ok));
+      $(`${id}-error`).classList.toggle('on', !ok);
+      return ok;
+    };
+    Object.keys(reglas).forEach((id) => {
+      $(id).addEventListener('blur', () => validar(id));
+      // El error se quita mientras se corrige, no al salir del campo: así el botón no se mueve bajo el dedo.
+      $(id).addEventListener('input', () => {
+        if ($(id).getAttribute('aria-invalid') === 'true') validar(id);
+      });
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorGlobal.hidden = true;
+      const resultados = Object.keys(reglas).map(validar);
+      if (resultados.includes(false)) {
+        $<HTMLElement>(Object.keys(reglas)[resultados.indexOf(false)]).focus();
+        return;
+      }
+      const datos = Object.fromEntries(new FormData(form).entries());
+      if (datos._gotcha) return;
+      const endpoint = form.dataset.endpoint;
+      enviar.disabled = true;
+      enviar.textContent = 'Enviando…';
+      try {
+        if (!endpoint) throw new Error('sin destino');
+        const r = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(datos),
+        });
+        if (!r.ok) throw new Error(String(r.status));
+        form.hidden = true;
+        exito.hidden = false;
+        exito.focus();
+      } catch {
+        errorGlobal.hidden = false;
+      } finally {
+        enviar.disabled = false;
+        enviar.textContent = 'Enviar mi propuesta';
+      }
+    });
+
+    $('f-otra').addEventListener('click', () => {
+      form.reset();
+      form.hidden = false;
+      exito.hidden = true;
+      $('f-propuesta').focus();
+    });
+  }
+</script>
