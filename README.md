@@ -24,6 +24,7 @@ npm run assets    # regenera favicon, ícono de iPhone e imagen Open Graph (nece
 | Informes de transparencia y sus PDF | `src/data/transparencia.ts` (poner el PDF en `public/informes/` y su ruta en `pdf`) |
 | Correo, teléfono, WhatsApp, redes, dirección | `src/config.ts` (`null` = pendiente; no se muestra como dato) |
 | Destino del formulario «Tu propuesta» | `PUBLIC_FORM_ENDPOINT` (ver `.env.example`) |
+| Fotos (secretario, gente) | Copiar el archivo a `public/img/` con el nombre del marcador (ver `IMAGENES.md`). Sin tocar código. |
 
 La Agenda separa «próximos» y «pasados» al construir el sitio: para que un evento pase de una lista a otra hay que volver a construir.
 
@@ -33,4 +34,4 @@ La Agenda separa «próximos» y «pasados» al construir el sitio: para que un 
 
 ## Fuentes
 
-Archivo 800 (ancho 112) y Atkinson Hyperlegible Next 400 y 700, en `public/fonts/` como instancias estáticas del subconjunto latino (39 KB en total). Ambas con licencia SIL OFL.
+Montserrat (fuente variable, subconjunto latino, 38 KB) en `public/fonts/montserrat-var.woff2`. Tres pesos: 400 cuerpo, 600 énfasis y controles, 800 titulares. Licencia SIL OFL.

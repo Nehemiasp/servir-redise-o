@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
+import Foto from '../components/Foto.astro';
 import { SITE } from '../config';
 import { grupos, totalProgramas } from '../data/programas';
 import { paradas } from '../data/ruta';
@@ -36,7 +37,7 @@ const mapa = `https://www.google.com/maps/search/?api=1&query=${encodeURICompone
   <section class="seccion seccion--blanca" aria-labelledby="mensaje-titulo">
     <div class="wrap mensaje">
       <figure>
-        <div class="foto-slot"><span class="pendiente">[Foto del Secretario General]</span></div>
+        <Foto id="secretario" ratio="4/5" alt="Carlos Pineda, Secretario General del Partido SERVIR" etiqueta="Carlos Pineda, Secretario General, vertical 4:5" />
         <figcaption class="credito">
           Carlos Pineda
           <small>Secretario General, Partido SERVIR</small>
@@ -56,8 +57,8 @@ const mapa = `https://www.google.com/maps/search/?api=1&query=${encodeURICompone
   <!-- 3. Qué es SERVIR -->
   <section class="seccion" id="que-es" aria-labelledby="que-es-titulo">
     <div class="wrap">
-      <div class="cols cols--12">
-        <div class="col-a">
+      <div class="que-es">
+        <div>
           <h2 id="que-es-titulo">¿Qué es SERVIR?</h2>
           <p class="lead mt-4">
             Somos un proyecto político que pone al ciudadano en el centro de las decisiones públicas, promoviendo <strong>libertad, responsabilidad, prosperidad y resultados</strong>.
@@ -68,34 +69,37 @@ const mapa = `https://www.google.com/maps/search/?api=1&query=${encodeURICompone
             <li>Resultados, no promesas</li>
           </ul>
         </div>
-        <div class="col-b">
-          <ul class="verbos">
-            <li>SERVIR a la gente</li>
-            <li>SERVIR con transparencia y eficiencia</li>
-            <li>SERVIR para generar resultados</li>
-            <li>SERVIR con responsabilidad y honestidad</li>
-            <li>SERVIR unidos por una mejor Guatemala</li>
-          </ul>
-          <p class="cierre-verbos">SERVIR es trabajar hoy por el país que todos queremos mañana.</p>
-        </div>
+        <ul class="sirve-lista">
+          <li>SERVIR a la gente</li>
+          <li>SERVIR con transparencia y eficiencia</li>
+          <li>SERVIR para generar resultados</li>
+          <li>SERVIR con responsabilidad y honestidad</li>
+          <li>SERVIR unidos por una mejor Guatemala</li>
+        </ul>
       </div>
 
+      <p class="que-es-cierre">SERVIR es trabajar hoy por el país que todos queremos mañana.</p>
+
       <div class="mv">
-        <div>
+        <div class="panel-mv">
           <h3>Nuestra misión</h3>
           <p>SERVIR es una organización política comprometida con construir un Estado moderno, eficiente y cercano a la gente. Promovemos una gestión pública basada en resultados, transparencia, innovación y responsabilidad ciudadana.</p>
         </div>
-        <div>
+        <div class="panel-mv">
           <h3>Nuestra visión</h3>
           <p>Visualizamos una Guatemala donde el Estado sea facilitador del desarrollo y no un obstáculo para el crecimiento. Una nación segura, productiva y libre, donde cada ciudadano tenga acceso a oportunidades reales para prosperar mediante su esfuerzo, talento y trabajo.</p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <ul class="menos-mas" aria-label="Lo que SERVIR propone">
-        <li><span class="menos">Menos burocracia</span><span>Más oportunidades</span></li>
-        <li><span class="menos">Menos privilegios</span><span>Más resultados</span></li>
-        <li><span class="menos">Menos dependencia</span><span>Más responsabilidad</span></li>
-        <li><span>Más libertad</span><span>Más prosperidad</span></li>
+  <section class="franja" aria-label="Lo que SERVIR propone">
+    <div class="wrap">
+      <ul class="menos-mas">
+        <li><span class="menos">Menos burocracia</span><span class="mas">Más oportunidades</span></li>
+        <li><span class="menos">Menos privilegios</span><span class="mas">Más resultados</span></li>
+        <li><span class="menos">Menos dependencia</span><span class="mas">Más responsabilidad</span></li>
+        <li><span class="menos">Más libertad</span><span class="mas">Más prosperidad</span></li>
       </ul>
     </div>
   </section>
@@ -157,14 +161,20 @@ const mapa = `https://www.google.com/maps/search/?api=1&query=${encodeURICompone
   </section>
 
   <!-- 6. Nuestra gente -->
-  <section class="seccion seccion--blanca gente" aria-labelledby="gente-titulo">
-    <div class="wrap">
-      <h2 id="gente-titulo">Nuestra gente</h2>
-      <p class="lead mb-5">
-        El corazón de SERVIR son las familias guatemaltecas. Sus historias, su esfuerzo y sus sueños son el verdadero motor del cambio.
-      </p>
-      <blockquote>Servir es cuidar tus siembras para cosechar tus sueños.</blockquote>
-      <p>Tu esfuerzo diario, tu fe y tus madrugadas son la verdadera fuerza del país. Hagamos que el gobierno empiece a parecerse a su gente.</p>
+  <section class="seccion seccion--blanca" aria-labelledby="gente-titulo">
+    <div class="wrap gente">
+      <div>
+        <h2 id="gente-titulo">Nuestra gente</h2>
+        <p class="lead mt-4">
+          El corazón de SERVIR son las familias guatemaltecas. Sus historias, su esfuerzo y sus sueños son el verdadero motor del cambio.
+        </p>
+        <blockquote>Servir es cuidar tus siembras para cosechar tus sueños.</blockquote>
+        <p>Tu esfuerzo diario, tu fe y tus madrugadas son la verdadera fuerza del país. Hagamos que el gobierno empiece a parecerse a su gente.</p>
+      </div>
+      <div class="gente-fotos">
+        <Foto id="gente-1" ratio="4/5" alt="Familia productora trabajando en su parcela" etiqueta="familia productora en su parcela, vertical 4:5" />
+        <Foto id="gente-2" ratio="4/5" alt="Agricultor guatemalteco cuidando su cultivo" etiqueta="agricultor en su cultivo, vertical 4:5" />
+      </div>
     </div>
   </section>
 
@@ -211,7 +221,7 @@ const mapa = `https://www.google.com/maps/search/?api=1&query=${encodeURICompone
         <div>
           <dt>Teléfono</dt>
           <dd>
-            {SITE.telefono ? <a href={`tel:${SITE.telefono}`}>{SITE.telefono}</a> : <span class="pendiente">[Teléfono del partido]</span>}
+            {SITE.telefono ? <a href={`tel:${SITE.telefono}`}>{SITE.telefono}</a> : <span class="pendiente">[Teléfono]</span>}
             {SITE.whatsapp && (
               <div><a href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent('Hola, quiero más información sobre el partido SERVIR')}`} target="_blank" rel="noopener noreferrer" class="enlace-chico">Escribir por WhatsApp<Icon name="externo" class="ext" /></a></div>
             )}

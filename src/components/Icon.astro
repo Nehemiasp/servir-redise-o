@@ -1,10 +1,11 @@
 ---
 // Un solo set de íconos: trazo de 2 px, estilo Lucide.
-interface Props { name: 'menu' | 'x' | 'externo'; class?: string }
+interface Props { name: 'menu' | 'x' | 'externo' | 'camara'; class?: string }
 const { name, class: cls } = Astro.props;
 const paths: Record<string, string> = {
   menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
   x: '<path d="M6 6l12 12M18 6L6 18"/>',
+  camara: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>',
   externo: '<path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
 };
 ---

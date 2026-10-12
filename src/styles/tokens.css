@@ -1,23 +1,9 @@
 /* Única fuente de colores, tipografía, espaciado y radios. Ver PLAN-VISUAL.md. */
 
 @font-face {
-  font-family: 'Archivo Servir';
-  src: url('/fonts/archivo-800.woff2') format('woff2');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Atkinson Servir';
-  src: url('/fonts/atkinson-400.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Atkinson Servir';
-  src: url('/fonts/atkinson-700.woff2') format('woff2');
-  font-weight: 700;
+  font-family: 'Montserrat Servir';
+  src: url('/fonts/montserrat-var.woff2') format('woff2');
+  font-weight: 400 800;
   font-style: normal;
   font-display: swap;
 }
@@ -35,22 +21,21 @@
   --texto-2: #3e4c5c; /* texto secundario, 8.4:1 sobre papel */
   --borde-campo: #5a7a8c; /* bordes de campos, 4.3:1 sobre papel */
   --linea: #c6d9e3; /* líneas decorativas de estructura */
+  --papel-2: #e3f1f7; /* fondo de marcadores de imagen */
 
-  /* Tipografía */
-  --f-titulo: 'Archivo Servir', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
-  --f-cuerpo: 'Atkinson Servir', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  /* Tipografía: Montserrat, 3 pesos (400 cuerpo, 600 énfasis y controles, 800 titulares) */
+  --f-titulo: 'Montserrat Servir', Montserrat, 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  --f-cuerpo: var(--f-titulo);
 
-  /* Escala 1.25 desde 18 px */
+  /* Escala 1.25 desde 17 px */
   --t-s: 1rem; /* 16, metadatos */
-  --t-0: 1.125rem; /* 18, cuerpo */
-  --t-1: 1.4rem; /* 22 */
-  --t-2: 1.75rem; /* 28 */
-  --t-3: 2.2rem; /* 35 */
-  --t-4: 2.75rem; /* 44 */
-  --t-5: 3.45rem; /* 55 */
-  --t-6: 4.3rem; /* 69 */
-  --t-7: 5.4rem; /* 86 */
-  --t-8: 6.75rem; /* 108 */
+  --t-0: 1.0625rem; /* 17, cuerpo */
+  --t-1: 1.3125rem; /* 21 */
+  --t-2: 1.625rem; /* 26 */
+  --t-3: 2.0625rem; /* 33 */
+  --t-4: 2.5625rem; /* 41 */
+  --t-5: 3.25rem; /* 52 */
+  --t-6: 4.0625rem; /* 65 */
 
   /* Espaciado, múltiplos de 8 */
   --s-1: 0.25rem;

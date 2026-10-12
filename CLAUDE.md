@@ -1,47 +1,67 @@
 # Estándar Lumacode para diseño y desarrollo web
 
-Versión 1.0, octubre de 2026.
+Versión 2.0, octubre de 2026.
 
-Este documento define el nivel de calidad de todo sitio, landing page o interfaz que sale de Lumacode. No es una plantilla visual: cada proyecto debe tener su propia identidad. Lo que se repite entre proyectos es el criterio, el proceso y el nivel de terminación, no el aspecto.
+Este documento define cómo trabaja una IA en los proyectos web de Lumacode y el nivel de calidad que debe entregar. No es una plantilla visual: cada proyecto tiene su propia identidad. Lo que se repite entre proyectos es el criterio, el proceso y el nivel de terminación, no el aspecto.
 
 Úsalo así:
 
 - Colócalo en la raíz de cada proyecto como `CLAUDE.md`, `AGENTS.md` o `.cursorrules`, o pégalo al inicio de la conversación con cualquier herramienta de IA (Claude, v0, Lovable, Cursor).
-- Llena la **Ficha del proyecto** (sección 2) antes de pedir el primer diseño.
-- Si trabajas con una persona, entrégale este archivo junto con el brief.
+- Dale a la IA el brief del cliente, aunque sea corto. La IA hace el resto del trabajo de propuesta.
 
 ---
 
-## 0. Orden de prioridad
+## 0. Roles
+
+**La IA propone y ejecuta.** Analiza el brief, completa la ficha del proyecto, propone la dirección visual, escribe los textos, elige las imágenes, construye, se revisa a sí misma y entrega un reporte. No espera a que alguien le diga qué color usar o qué secciones poner: lo decide con criterio y lo justifica.
+
+**El coordinador revisa y aprueba.** Valida que la propuesta responda al brief, aprueba la dirección visual, revisa la entrega y pide ajustes. No diseña ni redacta: corrige el rumbo.
+
+Por eso la IA debe dejar todo fácil de revisar: decisiones explicadas en pocas líneas, supuestos marcados, pendientes listados y capturas de cada entrega.
+
+---
+
+## 1. Orden de prioridad
 
 Cuando dos instrucciones choquen, gana la de arriba:
 
-1. Lo que el cliente pidió explícitamente en el brief o en la conversación.
+1. Lo que el cliente o el coordinador pidieron explícitamente.
 2. La identidad de marca del cliente (logo, colores, tipografía, manual).
-3. La Ficha del proyecto.
+3. La ficha del proyecto aprobada.
 4. Este estándar.
-5. Las preferencias o costumbres de quien diseña o de la herramienta de IA.
+5. Las costumbres o preferencias por defecto de la IA.
 
 La identidad visual de Lumacode (cuadrados, círculo bermellón, Schibsted Grotesk) **no se usa en proyectos de clientes**. Es la marca del estudio, no un estilo de la casa.
 
 ---
 
-## 1. Reglas de alcance: hacer lo que se pidió
+## 2. Reglas de alcance
 
-Estas reglas existen porque el error más caro no es un diseño feo, sino uno que no responde a lo que el cliente necesita.
+El error más caro no es un diseño feo, sino uno que no responde a lo que se pidió.
 
 - **Haz exactamente lo solicitado.** Si se pidió una landing de una página, no entregues un sitio de cinco. Si se pidió cambiar el formulario, no rediseñes el hero.
-- **No agregues secciones, funciones ni páginas que nadie pidió.** Nada de blog, newsletter, modo oscuro, chat, carrito, testimonios o "preguntas frecuentes" por costumbre. Si crees que algo falta, propónlo aparte; no lo construyas.
-- **No inventes datos.** Prohibido crear testimonios, nombres de clientes, logos de empresas, cifras ("+500 clientes felices"), premios, certificaciones, precios o reseñas. Si el contenido real no existe, usa un marcador claro: `[Testimonio real del cliente]`.
-- **No cambies lo que ya funciona** fuera del alcance de la tarea: nombres de rutas, textos aprobados, colores de marca, estructura de datos.
-- **Si falta información que cambia el resultado, pregunta antes de construir.** Si la falta de información no bloquea, toma la decisión más razonable y anótala en el reporte de entrega (sección 14).
-- **Una tarea, un cambio.** Cada entrega dice qué se cambió y qué no se tocó.
+- **No agregues secciones, funciones ni páginas que nadie pidió.** Nada de blog, newsletter, modo oscuro, chat, carrito o preguntas frecuentes por costumbre. Si crees que algo aportaría, propónlo en el reporte bajo "Sugerencias"; no lo construyas.
+- **No cambies lo que ya funciona** fuera del alcance de la tarea: rutas, textos aprobados, colores de marca, estructura de datos.
+- **Decide en lugar de preguntar** cuando la falta de información no bloquea: toma la opción más razonable para este cliente, márcala como supuesto y sigue.
+- **Pregunta solo cuando la respuesta cambia todo** (por ejemplo, no se sabe qué vende el cliente, o hay dos lecturas del brief que llevan a proyectos distintos). En ese caso, pregunta una vez, con opciones concretas.
+
+### Qué puede escribir la IA y qué no puede inventar
+
+| La IA sí escribe | La IA nunca inventa |
+|---|---|
+| Titulares, descripciones de servicios y textos de botones a partir de lo que hace el cliente | Testimonios, reseñas o calificaciones |
+| Textos de error, confirmación y estados vacíos | Cifras ("+500 clientes", "98 % de satisfacción", "10 años de experiencia") |
+| Descripciones generales del proceso de trabajo | Nombres o logos de clientes, socios, premios o certificaciones |
+| Preguntas frecuentes, si fueron pedidas | Precios, horarios, direcciones, teléfonos o correos |
+| | Fotos presentadas como reales del cliente, su equipo o sus productos |
+
+Lo que no se puede inventar va como marcador visible: `[Testimonio real del cliente]`, `[Teléfono]`, `[Años de experiencia]`. Todos los marcadores se listan en el reporte de entrega.
 
 ---
 
-## 2. Ficha del proyecto
+## 3. Ficha del proyecto (la completa la IA)
 
-Se llena antes de diseñar. Sin ficha no hay diseño: sin ella, cualquier resultado será genérico.
+Antes de diseñar, la IA completa esta ficha con lo que dice el brief. Lo que el brief no dice, la IA lo deduce del tipo de negocio y lo marca como **(supuesto)**. La ficha va al inicio de la primera propuesta para que el coordinador la valide de un vistazo.
 
 ```markdown
 ## Ficha del proyecto
@@ -53,42 +73,44 @@ Se llena antes de diseñar. Sin ficha no hay diseño: sin ella, cualquier result
 - Páginas o pantallas incluidas:
 - Fuera de alcance:
 - Contenido disponible (textos, fotos, logo, videos):
+- Contenido faltante (lo que irá como placeholder):
 - Identidad existente (colores, tipografías, manual):
-- Referencias que le gustan al cliente y por qué:
-- Lo que el cliente no quiere:
 - Tono de voz (tú / usted, formal / cercano):
 - Idioma(s):
 - Restricciones técnicas (stack, hosting, CMS, integraciones):
-- Fecha de entrega:
+- Supuestos tomados:
 ```
 
 ---
 
-## 3. Identidad propia en cada proyecto
+## 4. Propuesta visual (la genera la IA)
 
 Cada proyecto debe poder reconocerse sin ver el logo. La identidad sale del mundo del cliente: su oficio, sus materiales, su público, su vocabulario. Una clínica dental, una constructora y una cafetería no pueden terminar con la misma página y distinto color.
 
-### 3.1 Plan visual antes del código
+### 4.1 Contenido de la propuesta
 
-Antes de escribir código, define un plan corto:
+La IA entrega, antes de construir la página completa:
 
-- **Color:** 4 a 6 colores con nombre y hex, y el papel de cada uno (fondo, texto, acento, superficie, línea, estado).
-- **Tipografía:** una o dos familias, con su papel. Si son dos, que se distingan claramente.
-- **Layout:** la idea de composición en una frase y un esquema ASCII del hero y de una sección tipo. Define la alineación (izquierda, centrada, asimétrica) y por qué.
-- **El elemento memorable:** una sola cosa que hará que esta página se recuerde (una tipografía protagonista, una fotografía, una interacción, una forma de presentar el producto). Todo lo demás se mantiene sobrio.
+- **Color:** 4 a 6 colores con nombre, hex y papel (fondo, texto, acento, superficie, línea, estado). Si el cliente tiene colores de marca, parte de ellos.
+- **Tipografía:** una o dos familias, con su papel y el motivo de la elección.
+- **Layout:** la idea de composición en una frase y un esquema ASCII del hero y de una sección tipo. Define la alineación y por qué.
+- **El elemento memorable:** una sola cosa que hará que esta página se recuerde. Todo lo demás se mantiene sobrio.
 - **Principios:** dos o tres frases sobre qué hace única a esta página.
+- **Vista previa:** el hero construido (o una captura), para que el coordinador juzgue con algo visible y no solo con una descripción.
 
-### 3.2 Prueba de lo genérico
+Por defecto se entrega **una** propuesta sólida. Si el coordinador pide opciones, se entregan dos o tres direcciones realmente distintas (en tipografía, composición y tono), no la misma página con otro color.
 
-Revisa el plan con esta pregunta: *¿llegaría a este mismo diseño si el cliente fuera de otro rubro?* Si la respuesta es sí en cualquier punto (color, tipografía, hero, estructura), ese punto es un valor por defecto y no una decisión. Cámbialo y anota por qué.
+### 4.2 Prueba de lo genérico
 
-### 3.3 El hero
+Antes de mostrar la propuesta, la IA se pregunta: *¿llegaría a este mismo diseño si el cliente fuera de otro rubro?* Si la respuesta es sí en cualquier punto (color, tipografía, hero, estructura), ese punto es un valor por defecto y no una decisión. Lo cambia y explica en una línea qué cambió y por qué.
 
-El hero muestra lo más característico del cliente en la forma que mejor le sirve: el producto real, una foto propia, una demostración, un titular fuerte o una interacción. "Número grande + etiqueta + degradado" o "titular + subtítulo + dos botones + ilustración 3D" solo se usan si de verdad son la mejor opción para este cliente.
+### 4.3 El hero
+
+El hero muestra lo más característico del cliente en la forma que mejor le sirve: el producto, una foto, una demostración, un titular fuerte o una interacción. "Número grande + etiqueta + degradado" o "titular + subtítulo + dos botones + ilustración 3D" solo se usan si de verdad son la mejor opción para este cliente.
 
 ---
 
-## 4. Señales de "hecho con IA" que se evitan
+## 5. Señales de "hecho con IA" que se evitan
 
 Son legítimas solo si el brief las pide. Si el brief deja libre la decisión, no se gasta en ninguna de estas.
 
@@ -99,7 +121,7 @@ Son legítimas solo si el brief las pide. Si el brief deja libre la decisión, n
 - Degradado violeta a azul, manchas de color difuminadas ("blobs") y glassmorphism como decoración.
 - Todo dividido en tarjetas idénticas con el mismo radio, la misma sombra gris suave y el mismo ícono arriba.
 - Fila de tres tarjetas "característica + ícono + texto corto" como solución automática para cualquier contenido.
-- Ilustraciones 3D genéricas, personas de stock sonriendo frente a una laptop, íconos con brillos (✨).
+- Ilustraciones 3D genéricas e íconos con brillos (✨).
 - Inter, Poppins o Montserrat elegidas sin motivo, solo porque están a mano.
 - Monoespaciada para etiquetas pequeñas sin que el contenido sea técnico.
 - Animación de aparecer y subir en cada sección, y efecto hover en cada tarjeta.
@@ -122,78 +144,109 @@ Son legítimas solo si el brief las pide. Si el brief deja libre la decisión, n
 
 ---
 
-## 5. Tipografía
+## 6. Imágenes cuando el cliente no tiene fotos
+
+Lo normal es que al inicio no haya fotos del sitio. La IA no deja huecos vacíos ni espera: usa imágenes genéricas o placeholders, siguiendo estas reglas.
+
+### 6.1 Qué usar, en este orden
+
+1. **Fotos del cliente**, si las entregó.
+2. **Fotografía de stock de uso libre** (Unsplash, Pexels), elegida para este cliente:
+   - Del mismo rubro y contexto (una ferretería muestra herramientas y materiales, no una oficina con laptops).
+   - Coherentes entre sí: misma luz, temperatura de color y estilo. Si no combinan, se unifican con un tratamiento (encuadre, recorte o un filtro suave consistente).
+   - Sin rostros protagonistas que puedan confundirse con el equipo real del cliente, sin logos ni marcas visibles, sin texto dentro de la foto.
+   - Descargadas al proyecto (`/public/img/placeholder/` o equivalente), nunca enlazadas a la web de origen.
+3. **Placeholder diseñado**, cuando no hay una foto genérica honesta (por ejemplo, foto del producto exacto, del local o del equipo):
+   - Bloque con la proporción final exacta (16:9, 4:5, 1:1…), en un tono neutro de la paleta del proyecto.
+   - Etiqueta discreta que describe la foto que debe ir: `Foto: fachada del local, horizontal`.
+   - Integrado al diseño: la página debe verse terminada aunque el placeholder siga ahí.
+4. **Imágenes generadas por IA**, solo si el coordinador lo autoriza para ese proyecto.
+
+### 6.2 Reglas que no cambian
+
+- Una foto genérica nunca se presenta como real. Nada de stock con texto como "Nuestro equipo" o "Nuestras instalaciones": eso lleva placeholder.
+- Cada imagen se elige para el lugar donde va: la proporción, el punto de interés y el espacio para texto se deciden antes de buscarla.
+- Todas las imágenes de stock y placeholders se registran en `IMAGENES.md` en la raíz del proyecto:
+
+```markdown
+| Archivo | Dónde se usa | Tipo | Fuente | Reemplazar por |
+|---|---|---|---|---|
+| hero.webp | Inicio, hero | Stock | unsplash.com/photos/… | Foto real del taller, horizontal |
+| equipo.webp | Nosotros | Placeholder | — | Foto del equipo, 4:5 |
+```
+
+### 6.3 Técnica de imágenes
+
+- `alt` descriptivo en toda imagen con contenido; `alt=""` en las decorativas.
+- Formatos AVIF o WebP, tamaños responsivos (`srcset`/`sizes`), `width` y `height` declarados.
+- `loading="lazy"` en todo lo que no está en la primera pantalla; la imagen del hero sin lazy y con prioridad alta.
+- Un solo set de íconos en todo el proyecto, con el mismo trazo y estilo (por ejemplo, Lucide, Phosphor o Tabler). Nunca emojis como íconos.
+- Logos de clientes o socios solo si el cliente los entregó y autorizó.
+
+---
+
+## 7. Tipografía
 
 - Máximo dos familias. Una sola bien elegida suele bastar.
-- Elige por el carácter del cliente, no por costumbre. Verifica la licencia para uso web (Google Fonts, Fontshare o licencia comprada por el cliente).
+- Elige por el carácter del cliente, no por costumbre. Verifica la licencia para uso web (Google Fonts, Fontshare o licencia del cliente).
 - Escala tipográfica definida con tokens (por ejemplo, razón 1.2 a 1.333) y respetada en todo el proyecto. Nada de tamaños sueltos.
 - Cuerpo de texto entre 16 y 18 px en escritorio, nunca menos de 16 px en móvil.
 - Largo de línea entre 45 y 75 caracteres (`max-width: 65ch` como referencia).
 - Interlineado: 1.4 a 1.6 en cuerpo; 1.0 a 1.2 en titulares grandes.
-- Pesos con intención: no más de tres por proyecto.
+- No más de tres pesos por proyecto.
 - Titulares en tipo oración ("Diseño que vende"), no en Tipo Título ("Diseño Que Vende").
-- En español: signos de apertura (¿ ¡), tildes completas, comillas consistentes, sin palabras cortadas por guiones automáticos en titulares.
+- En español: signos de apertura (¿ ¡), tildes completas, comillas consistentes, sin palabras cortadas por guiones en titulares.
 - Carga: `font-display: swap`, solo los pesos usados, subconjunto latino, `preload` de la fuente principal.
 
 ---
 
-## 6. Color
+## 8. Color
 
 - Paleta de 4 a 6 colores como tokens con nombre (`--color-fondo`, `--color-texto`, `--color-acento`…). Nunca hex sueltos en componentes.
 - Contraste mínimo WCAG AA: 4.5:1 para texto normal, 3:1 para texto grande (24 px o más, o 19 px en negrita) y para bordes de campos e íconos funcionales.
 - El acento es escaso: alrededor del 10 % de la pantalla. Si todo resalta, nada resalta.
-- Colores de estado (error, éxito, aviso) definidos y accesibles, sin depender solo del color: acompáñalos de texto o ícono.
-- Respeta los colores de marca del cliente. Si un color de marca no pasa contraste como texto, úsalo en superficies grandes y define una variante accesible para texto.
+- Colores de estado (error, éxito, aviso) definidos y accesibles, acompañados de texto o ícono.
+- Respeta los colores de marca del cliente. Si uno no pasa contraste como texto, úsalo en superficies grandes y define una variante accesible para texto.
 - Modo oscuro solo si se pidió.
 
 ---
 
-## 7. Layout y espaciado
+## 9. Layout y espaciado
 
 - Escala de espaciado en múltiplos de 4 u 8 px, como tokens.
-- Una retícula definida (por ejemplo, 12 columnas en escritorio, 4 en móvil) y ancho máximo de contenido.
-- El espacio comunica: más espacio entre secciones que dentro de ellas; elementos relacionados, juntos.
+- Retícula definida (por ejemplo, 12 columnas en escritorio, 4 en móvil) y ancho máximo de contenido.
+- Más espacio entre secciones que dentro de ellas; elementos relacionados, juntos.
 - Radios de borde según jerarquía, no uno para todo. Decide si el proyecto usa esquinas rectas, suaves o redondas, y por qué.
 - Sombras solo cuando algo realmente está por encima de otra cosa (menús, modales).
 - Probar siempre en 360, 768, 1024 y 1440 px. Sin scroll horizontal en ningún ancho.
-- En móvil no se "encoge" el escritorio: se reordena según lo que la persona necesita primero.
-- Las líneas, bordes, numeraciones y etiquetas comunican estructura real del contenido; si no informan nada, sobran.
+- En móvil no se encoge el escritorio: se reordena según lo que la persona necesita primero.
+- Líneas, bordes, numeraciones y etiquetas solo si comunican estructura real del contenido.
 
 ---
 
-## 8. Imágenes e íconos
-
-- Prioridad: fotos reales del cliente > fotografía de stock elegida con cuidado > ilustración a medida. Nunca imágenes generadas por IA salvo que el cliente lo pida y lo apruebe.
-- Un solo set de íconos en todo el proyecto, con el mismo grosor de trazo y estilo (por ejemplo, Lucide, Phosphor o Tabler).
-- Toda imagen con `alt` descriptivo; las decorativas con `alt=""`.
-- Formatos AVIF o WebP, tamaños responsivos (`srcset`/`sizes`), `width` y `height` declarados para evitar saltos de contenido.
-- Carga diferida (`loading="lazy"`) en todo lo que no aparece en la primera pantalla; la imagen principal del hero sin lazy y con prioridad alta.
-- Logos de clientes o socios solo si el cliente los autorizó.
-
----
-
-## 9. Movimiento
+## 10. Movimiento
 
 - Una sola secuencia orquestada por página (por ejemplo, la entrada del hero) pesa más que muchos efectos sueltos.
 - La animación que responde a una acción (abrir, expandir, confirmar, enviar) es bienvenida si muestra qué cambió.
-- Duraciones de 150 a 300 ms en interfaz; curvas de salida suaves (`ease-out`). Nada que haga esperar a la persona.
-- Respeta `prefers-reduced-motion`: sin movimiento no esencial cuando está activo.
+- Duraciones de 150 a 300 ms en interfaz, con salida suave (`ease-out`).
+- Respeta `prefers-reduced-motion`.
 - Sin parallax, carruseles automáticos ni cursores personalizados salvo que el brief lo justifique.
 
 ---
 
-## 10. Escritura y microcopy
+## 11. Escritura y microcopy
 
-Las palabras son parte del diseño. Cada texto hace un solo trabajo.
+Las palabras son parte del diseño. La IA escribe todos los textos del sitio a partir de lo que hace el cliente, con estas reglas:
 
 - Escribe desde lo que la persona entiende y necesita, no desde cómo funciona el sistema.
 - Concreto antes que ingenioso. "Instalamos paneles solares en casas y negocios" gana a "Energía que transforma tu futuro".
 - Voz activa y verbos claros. Un botón dice lo que pasa al presionarlo: "Pedir cotización", no "Enviar"; "Agendar visita", no "Más información".
 - La misma acción se llama igual en todo el flujo: si el botón dice "Reservar", la confirmación dice "Reserva confirmada".
-- Errores: qué pasó y cómo resolverlo, sin disculpas ni vaguedades. "Escribe un correo válido, por ejemplo nombre@empresa.com".
-- Estados vacíos: invitan a actuar. "Aún no tienes proyectos. Crea el primero".
-- Define al inicio si se trata de tú o de usted, y mantenlo.
+- Errores: qué pasó y cómo resolverlo, sin disculpas ni vaguedades.
+- Estados vacíos: invitan a actuar.
+- Tú o usted según la ficha, sin mezclar.
 - Sin relleno: si una frase se puede quitar sin perder nada, se quita.
+- Los textos escritos por la IA se entregan como propuesta: el reporte indica que el cliente debe validarlos.
 
 | Evitar | Preferir |
 |---|---|
@@ -205,9 +258,9 @@ Las palabras son parte del diseño. Cada texto hace un solo trabajo.
 
 ---
 
-## 11. Componentes, estados y formularios
+## 12. Componentes, estados y formularios
 
-Todo elemento interactivo tiene sus estados diseñados, no solo el estado normal:
+Todo elemento interactivo tiene sus estados diseñados:
 
 - Normal, hover, foco visible (`:focus-visible`), presionado, deshabilitado.
 - Cargando, éxito, error y vacío donde aplique.
@@ -220,71 +273,74 @@ Botones:
 Formularios:
 
 - Etiqueta visible en cada campo; el placeholder no reemplaza a la etiqueta.
-- Pide solo lo necesario. Cada campo extra cuesta conversiones.
+- Solo los campos necesarios.
 - Tipos de input correctos (`email`, `tel`, `number`) y `autocomplete`.
 - Validación al salir del campo o al enviar, con el mensaje junto al campo.
-- Confirmación clara después de enviar, y el formulario debe funcionar de verdad (destino configurado y probado).
+- Confirmación clara después de enviar. Si el destino del formulario no está definido, se deja preparado y se marca como pendiente en el reporte.
 
 ---
 
-## 12. Accesibilidad (mínimo obligatorio)
+## 13. Accesibilidad y calidad técnica
+
+**Accesibilidad (mínimo obligatorio)**
 
 - HTML semántico: `header`, `nav`, `main`, `section`, `footer`, `button` para acciones, `a` para navegación.
-- Un solo `h1` por página y títulos en orden, sin saltos de nivel.
-- `lang="es"` (o el idioma correspondiente) en el documento.
-- Todo se puede usar con teclado, en un orden lógico, con foco siempre visible.
-- Contraste según la sección 6.
+- Un solo `h1` por página y títulos en orden.
+- `lang="es"` (o el idioma correspondiente).
+- Todo usable con teclado, con foco siempre visible.
 - ARIA solo cuando el HTML nativo no alcanza.
-- Videos con subtítulos o transcripción si tienen voz.
 - Enlace "Saltar al contenido" en sitios con navegación larga.
 
----
-
-## 13. Calidad técnica
-
-**Rendimiento** (medido con Lighthouse o PageSpeed en móvil):
+**Rendimiento** (Lighthouse o PageSpeed en móvil)
 
 - LCP menor a 2.5 s, INP menor a 200 ms, CLS menor a 0.1.
-- JavaScript solo donde aporta. Una landing no necesita un framework pesado si HTML y CSS bastan.
-- Sin dependencias que no se usan.
+- JavaScript solo donde aporta. Sin dependencias que no se usan.
 
-**SEO básico:**
+**SEO básico**
 
 - `title` único (50 a 60 caracteres) y `meta description` (140 a 160) por página.
-- Etiquetas Open Graph con imagen de 1200 × 630 px.
-- Favicon e ícono para dispositivos, `sitemap.xml`, `robots.txt`, URL canónica.
-- Página 404 diseñada, con salida de vuelta al sitio.
+- Open Graph con imagen de 1200 × 630 px.
+- Favicon, `sitemap.xml`, `robots.txt`, URL canónica y página 404 diseñada.
 
-**Código:**
+**Código**
 
-- Tokens de diseño como variables CSS (o el tema del framework) usados en todo el proyecto. Sin valores mágicos repetidos.
+- Tokens de diseño como variables CSS (o el tema del framework). Sin valores mágicos repetidos.
 - Componentes reutilizables y nombres claros. Sin estilos en línea dispersos.
-- Sin errores ni advertencias en la consola. Sin enlaces rotos.
-- Textos fuera del código cuando el sitio es multilingüe o editable.
-- Analítica, cookies o rastreo solo si se pidieron; con aviso de consentimiento cuando corresponda.
+- Cambiar una imagen placeholder por la real debe ser cambiar un archivo, no tocar el código.
+- Consola sin errores ni advertencias. Sin enlaces rotos.
+- Analítica, cookies o rastreo solo si se pidieron.
 
 ---
 
 ## 14. Proceso de trabajo
 
-1. **Ficha:** completar la sección 2. Si faltan datos que cambian el resultado, preguntar.
-2. **Plan visual:** proponer el plan de la sección 3.1 y pasarlo por la prueba de lo genérico (3.2). Ajustar antes de construir.
-3. **Contenido real primero:** estructurar con los textos e imágenes reales o con marcadores claros. No diseñar alrededor de lorem ipsum.
-4. **Construir por secciones**, revisando cada una contra la ficha.
-5. **Autocrítica con capturas** en 360, 768 y 1440 px. Preguntar: ¿qué sobra?, ¿qué parece plantilla?, ¿qué no responde al brief? Quitar un adorno antes de entregar.
-6. **Checklist de entrega** (sección 15).
-7. **Reporte de entrega** con este formato:
+La IA sigue estos pasos sin esperar instrucciones entre uno y otro, salvo en los dos puntos de revisión.
+
+1. **Ficha:** completa la sección 3 a partir del brief, con supuestos marcados.
+2. **Propuesta visual:** arma la sección 4.1 y la pasa por la prueba de lo genérico.
+3. **Punto de revisión 1:** entrega ficha y propuesta con la vista previa del hero. Si el coordinador indicó "construye directo", continúa sin esperar.
+4. **Contenido:** escribe los textos (sección 11), busca imágenes o crea placeholders (sección 6) y registra todo en `IMAGENES.md`.
+5. **Construcción por secciones**, revisando cada una contra la ficha.
+6. **Autocrítica con capturas** en 360, 768 y 1440 px: ¿qué sobra?, ¿qué parece plantilla?, ¿qué no responde al brief? Quita un adorno antes de entregar.
+7. **Checklist de entrega** (sección 15).
+8. **Punto de revisión 2:** reporte de entrega con capturas.
 
 ```markdown
 ## Entrega
 
 - Qué se hizo:
 - Qué no se tocó:
-- Decisiones tomadas sin confirmación (y por qué):
-- Marcadores pendientes de contenido real:
+- Decisiones tomadas y por qué (máximo 5 líneas):
+- Supuestos que el cliente debe confirmar:
+- Textos propuestos que el cliente debe validar:
+- Imágenes de stock y placeholders por reemplazar: ver IMAGENES.md
+- Marcadores de datos pendientes ([Teléfono], [Testimonio]…):
+- Checklist: casillas sin cumplir y por qué
 - Cómo probarlo:
-- Siguiente paso sugerido (si hay uno):
+- Sugerencias fuera de alcance (no construidas):
 ```
+
+Cuando el coordinador pida ajustes, la IA cambia solo lo señalado, explica qué cambió y no reabre decisiones ya aprobadas.
 
 ---
 
@@ -294,18 +350,22 @@ Nada se entrega con una casilla sin marcar, salvo que el reporte explique por qu
 
 **Alcance**
 - [ ] Hace lo que se pidió y nada que no se pidió.
-- [ ] No hay datos inventados (testimonios, cifras, logos, reseñas).
-- [ ] Los marcadores pendientes están listados en el reporte.
+- [ ] No hay datos inventados (testimonios, cifras, logos, precios, contactos).
+- [ ] Supuestos y marcadores listados en el reporte.
 
 **Identidad**
-- [ ] El plan visual pasó la prueba de lo genérico.
+- [ ] La propuesta pasó la prueba de lo genérico.
 - [ ] Hay un elemento memorable y el resto es sobrio.
-- [ ] Ninguna de las señales de la sección 4 aparece sin que el brief la pida.
+- [ ] Ninguna señal de la sección 5 aparece sin que el brief la pida.
 - [ ] Respeta la marca del cliente.
 
+**Imágenes**
+- [ ] Ningún hueco vacío: cada espacio tiene foto real, stock coherente o placeholder diseñado.
+- [ ] Ninguna foto genérica presentada como real.
+- [ ] `IMAGENES.md` completo.
+
 **Diseño**
-- [ ] Escala tipográfica, de espaciado y de color aplicada con tokens.
-- [ ] Largo de línea y jerarquía correctos.
+- [ ] Escalas de tipografía, espaciado y color aplicadas con tokens.
 - [ ] Todos los estados interactivos diseñados.
 - [ ] Revisado en 360, 768, 1024 y 1440 px, sin scroll horizontal.
 
@@ -314,81 +374,55 @@ Nada se entrega con una casilla sin marcar, salvo que el reporte explique por qu
 - [ ] Botones con verbos que dicen lo que pasa.
 - [ ] Ortografía, tildes y signos revisados.
 
-**Accesibilidad**
-- [ ] Contraste AA, foco visible, navegación con teclado.
+**Accesibilidad y técnica**
+- [ ] Contraste AA, foco visible, navegación con teclado, `prefers-reduced-motion`.
 - [ ] Un `h1`, títulos en orden, `alt` en imágenes, `lang` definido.
-- [ ] `prefers-reduced-motion` respetado.
-
-**Técnica**
 - [ ] LCP < 2.5 s, INP < 200 ms, CLS < 0.1 en móvil.
 - [ ] `title`, descripción, Open Graph, favicon, 404.
-- [ ] Formularios probados de punta a punta.
 - [ ] Consola limpia, sin enlaces rotos.
 
 ---
 
-## 16. Instrucción final para herramientas de IA
+## 16. Instrucción final para la IA
 
-Antes de responder, lee la Ficha del proyecto y este estándar. Si la ficha está vacía, pide la información mínima: qué hace el cliente, para quién, y cuál es la acción principal de la página. Si recibes una tarea concreta, limítate a esa tarea. Al terminar, entrega el reporte de la sección 14. Si algo de este estándar contradice lo que el cliente pidió, gana el cliente y lo dices en el reporte.
+Eres responsable de la propuesta y de la ejecución. Lee el brief, completa la ficha, propone una dirección visual propia para este cliente, escribe los textos, resuelve las imágenes con stock coherente o placeholders, construye y revísate antes de entregar. Decide cuando puedas y marca tus supuestos; pregunta solo si la respuesta cambia el proyecto entero. No agregues nada que no se pidió y no inventes datos del cliente. Si algo de este estándar contradice lo que pidió el cliente o el coordinador, gana su instrucción y lo dices en el reporte.
 
 ---
 
 # Proyecto: Partido SERVIR (Guatemala)
 
-Todo lo que sigue es específico de este proyecto. Lo anterior es el estándar y no se edita.
+Todo lo que sigue es específico de este proyecto. Lo anterior es el estándar v2 y no se edita.
 
 ## Ficha del proyecto
 
 - **Cliente / marca:** Partido SERVIR, Guatemala. Es una propuesta de mejora del sitio existente (partidoservir.com). El partido no la encargó, así que no se publica ni se presenta como sitio oficial.
 - **Qué hace, en una frase:** partido político guatemalteco «por el campo y la gente» que propone 13 programas sociales y productivos y busca afiliados.
-- **Para quién (público principal y lo que busca):** *supuesto, por confirmar.* Ciudadanía guatemalteca, con peso en el área rural y en personas mayores: quiere saber si un programa le toca, cómo afiliarse y cómo participar. También afiliados, dirigentes y prensa, que buscan agenda y transparencia.
-- **Trabajo principal de la página:** afiliarse. El botón lleva al portal externo `https://autoafiliacion.servirgt.org/`.
-- **Páginas o pantallas incluidas:** Inicio, Agenda, Tu propuesta (se crea desde cero, no existía el HTML de referencia), Transparencia y 404.
-- **Fuera de alcance:** el portal de autoafiliación (es externo), blog o noticias, modo oscuro, otros idiomas, analítica, chat, donaciones, CMS o backend, publicación en un dominio.
-- **Contenido disponible:**
-  - Textos del Inicio, la Agenda y Transparencia (HTML guardado del sitio actual).
-  - Logo en PNG de 500 × 500 con fondo negro. No hay vector ni versión transparente.
-  - Condiciones y beneficios de 4 de los 13 programas (capturas del sitio actual).
-  - Resumen de los 13 programas.
-  - 4 videos de TikTok y la lista de eventos pasados.
-  - **No disponible:** fotos (Secretario General, «Nuestra gente», tractor en comunidades), miniaturas de los videos, el PDF del informe financiero, condiciones y beneficios de los programas 5 a 13, aviso de privacidad, teléfono, WhatsApp, dirección y redes reales.
-- **Identidad existente:** logo-sello en círculo cian `#00CCFF` con anillo blanco, tractor y palabra SERVIR en negro, más «Afíliate» en letra manuscrita con subrayado cian. El sitio actual usa tinta azul muy oscura `#051223`, títulos en grotesca muy pesada y cuerpo en humanista (inferido de capturas, sin confirmar). No hay manual de marca.
-- **Referencias que le gustan al cliente y por qué:** ninguna dada.
-- **Lo que el cliente no quiere:** sin datos.
-- **Tono de voz:** tú, cercano y directo. El sitio actual ya tutea («Afíliate», «Comparte tu idea»).
+- **Para quién (público principal y lo que busca):** *(supuesto)* ciudadanía guatemalteca, con peso en el área rural y en personas mayores: quiere saber si un programa le toca, cómo afiliarse y cómo participar. También afiliados, dirigentes y prensa, que buscan agenda y transparencia.
+- **Trabajo principal de la página:** afiliarse, en el portal externo `https://autoafiliacion.servirgt.org/` (decidido por el coordinador).
+- **Páginas o pantallas incluidas:** Inicio, Agenda, Tu propuesta (redactada desde cero), Transparencia y 404.
+- **Fuera de alcance:** el portal de autoafiliación (externo), blog o noticias, modo oscuro, otros idiomas, analítica, chat, donaciones, CMS o backend, publicación en un dominio.
+- **Contenido disponible:** textos del Inicio, la Agenda y Transparencia (HTML guardado del sitio actual); logo en PNG de 500 × 500 con fondo negro; condiciones y beneficios de los 13 programas; 4 videos de TikTok (solo se tiene el enlace de uno) y 2 eventos pasados.
+- **Contenido faltante (placeholder):** foto del Secretario General, 2 fotos de «Nuestra gente», PDF del informe financiero, teléfono, WhatsApp, redes sociales, aviso de privacidad, destino del formulario, enlaces de 3 videos, logo en vector.
+- **Identidad existente:** logo-sello en círculo cian `#00CCFF` con anillo blanco, tractor y palabra SERVIR en negro, más «Afíliate» manuscrito. Tinta azul muy oscura `#051223` en el sitio actual. Sin manual de marca.
+- **Tono de voz:** tú, cercano y directo (el sitio actual ya tutea).
 - **Idioma(s):** español de Guatemala.
-- **Restricciones técnicas:** ninguna dada. El sitio actual está hecho con Lovable (React). Se propone Astro estático con CSS con tokens y JavaScript mínimo, por rendimiento en datos móviles. El destino del formulario de propuestas está pendiente.
-- **Fecha de entrega:** sin fecha.
+- **Restricciones técnicas:** ninguna dada. Se usa Astro estático, CSS con tokens y JavaScript mínimo, por rendimiento en datos móviles.
+- **Supuestos tomados:** ver `ENTREGA.md`.
 
-**Estado:** plan visual aprobado y sitio construido (ver `ENTREGA.md` y `PENDIENTES.md`).
+## Instrucciones del coordinador (ganan sobre el estándar, sección 1)
 
-## Decisiones tomadas por el usuario en la conversación
+- **Tipografía:** usar una familia sobria tipo Montserrat o Poppins, aunque la sección 5 y la sección 7 desaconsejen esas familias sin motivo. Aquí sí hay motivo: es una instrucción explícita. Se usa **Montserrat** (cercana a la palabra SERVIR del logo), con tres pesos: 400, 600 y 800.
+- **Distribución de «¿Qué es SERVIR?»:** el diseño anterior (frases enormes en lista) no gustó. Se reemplazó por una distribución de dos columnas con texto de tamaño normal, misión y visión en dos paneles, y la franja «Menos… / Más…» aparte.
+- Se ignora el estándar v1 que se usó antes. Rige el v2.
+
+## Decisiones ya tomadas por el coordinador
 
 - Acción principal: afiliarse.
-- Alcance: las 4 páginas actuales.
+- Alcance: las 4 páginas actuales (más la 404).
 - Cifras «33K+ afiliados», «23 distritos» y «100% compromiso»: se quitan (no tienen respaldo).
-- La página «Tu propuesta» la redacta y diseña Claude.
-- Plan visual (`PLAN-VISUAL.md`): aprobado.
-- Condiciones y beneficios de los 13 programas: entregados por el usuario (1 a 4 en capturas, 5 a 13 en texto).
+- La página «Tu propuesta» la redacta y diseña la IA.
+- Los 13 programas con sus condiciones y beneficios los entregó el coordinador.
 
-## Decisiones tomadas sin confirmación
+## Marcadores pendientes
 
-1. Los 13 programas se agrupan por a quién ayudan (el sitio actual los numera del 01 al 13, y no son una secuencia). Textos intactos.
-2. Se unifica el lema repetido 5 veces («Menos burocracia, más oportunidades…»): aparece una sola vez.
-3. Se reemplaza el carrusel automático del hero por contenido estático. El mensaje del Secretario General pasa a ser una sección propia.
-4. Se corrige «tracktor» por «tractor» y «Nahula» por «Nahualá» (por confirmar el segundo).
-5. Se quita la analítica del sitio actual (el estándar la permite solo si se pide).
-6. Titulares en tipo oración. Solo SERVIR y el lema del hero van en mayúsculas.
-7. Se elimina el emoji de la bandera y las viñetas con ✓.
-8. WhatsApp: el botón flotante solo aparece cuando haya un número real.
-
-## Marcadores pendientes de contenido real
-
-- [ ] Logo en vector o PNG transparente.
-- [ ] Foto del Secretario General y fotos de «Nuestra gente».
-- [ ] Miniaturas de los videos, o fotos del tractor en cada comunidad.
-- [ ] Condiciones y beneficios de los programas 5 a 13.
-- [ ] PDF del informe del 1er trimestre 2026 (y su peso).
-- [ ] Teléfono, WhatsApp, dirección y redes sociales.
-- [ ] Destino del formulario «Tu propuesta» y aviso de privacidad.
-- [ ] Confirmar que el contenido cumple lo que exige el TSE (el equipo legal del partido).
+Ver `PENDIENTES.md` (datos) e `IMAGENES.md` (fotos).

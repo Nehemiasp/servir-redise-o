@@ -1,10 +1,10 @@
 # Plan visual: Partido SERVIR
 
-Paso 2 del proceso (sección 14 del estándar). Nada se construye hasta que se apruebe o se ajuste este plan.
+Propuesta visual según el estándar v2 (sección 4). Versión 2: tras la primera revisión, el coordinador pidió una tipografía más sobria (Montserrat) y otra distribución para «¿Qué es SERVIR?». Este plan ya incluye esos cambios.
 
 ## Idea en una frase
 
-SERVIR es un partido de campo. Su recorrido real es un tractor que llega a comunidades, así que la página se organiza como esa ruta y no como una plantilla política. El logo es un círculo: será lo único curvo del sitio.
+SERVIR es un partido de campo. Su recorrido real es un tractor que llega a comunidades, así que la página tiene una ruta con paradas reales. El resto es sobrio: Montserrat, bloques rectos y mucho aire. El logo es un círculo: será lo único curvo del sitio.
 
 ## Color (6 tokens, sacados del logo y del sitio actual)
 
@@ -19,17 +19,17 @@ SERVIR es un partido de campo. Su recorrido real es un tractor que llega a comun
 
 El cian ocupa cerca del 10 % de la pantalla, salvo el hero. No se añade un segundo color de acento: la identidad ya está en el logo.
 
-## Tipografía (2 familias, 3 pesos)
+## Tipografía (1 familia, 3 pesos)
 
-- **Archivo 800** para titulares y el lema. Tiene eje de ancho, y en ancho extendido se parece a la palabra SERVIR del logo.
-- **Atkinson Hyperlegible 400 y 700** para el cuerpo. Se diseñó para baja visión. Tiene sentido aquí por el público: personas mayores y lectura en pantallas pequeñas al sol.
-- Escala 1.25 desde 18 px (18 / 22 / 28 / 35 / 44 / 55 / 69), con tamaños fluidos en el hero. Cuerpo nunca menos de 18 px. Líneas de 65 caracteres.
-- La letra manuscrita de «Afíliate» queda solo en el logo, no se reutiliza.
-- Archivos WOFF2 propios, subconjunto latino, `font-display: swap`.
+- **Montserrat** en todo el sitio, por indicación del coordinador (quería una letra más sobria, tipo Montserrat o Poppins). Además es la más cercana a la palabra SERVIR del logo.
+- Tres pesos: **800** titulares, **600** énfasis, enlaces y botones, **400** cuerpo.
+- Escala 1.25 desde 17 px (16 / 17 / 21 / 26 / 33 / 41 / 52 / 65). El titular más grande es de 65 px. Cuerpo de 17 px, líneas de 65 caracteres.
+- Archivo variable propio, subconjunto latino, 38 KB, `font-display: swap` y `preload`.
+- Montserrat es una elección del coordinador: el estándar v2 la desaconseja «sin motivo» y aquí el motivo es esa instrucción más su parecido con el logo.
 
 ## Layout
 
-Retícula de 12 columnas en escritorio y 4 en móvil, espaciado en múltiplos de 8 px, ancho máximo 1200 px. Alineación a la izquierda y asimétrica: el texto manda y el sello se corta por el borde.
+Retícula de 12 columnas en escritorio y 4 en móvil, espaciado en múltiplos de 8 px, ancho máximo 1200 px. Alineación a la izquierda: el texto manda y el sello del logo acompaña a la derecha, completo.
 
 Radios por jerarquía: bloques de contenido con esquinas rectas, controles con 8 px, y solo el sello es un círculo completo.
 
@@ -37,26 +37,43 @@ Radios por jerarquía: bloques de contenido con esquinas rectas, controles con 8
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
-│ (sello)SERVIR   Programas  Recorrido  Agenda  Propuesta  Transparencia   [Afiliarme] │
+│ (sello) SERVIR     Programas Recorrido Agenda Propuesta Transparencia [Afiliarme] │
 ├──────────────────────────────────────────────────────────────────────┤
 │  FONDO CIAN #00CCFF                                                  │
-│                                                                      │
-│  Partido político por el campo y la gente                            │
-│                                                   ╭───────────╮      │
-│  SERVIR ES                                      ╭─┤  sello    │      │
-│  GUATE.                                         │ │  círculo  │      │
-│  Y Guate es SERVIR.                             │ │  grande   │      │
-│                                                 ╰─┤  (cortado │      │
-│  Trece programas para mujeres, adultos mayores,   │  por el   │      │
-│  niñez, jóvenes y productores.                    │  borde)   │      │
-│                                                   ╰───────────╯      │
-│  [ Afiliarme en línea ]    Ver los 13 programas                      │
+│  Partido político por el campo y la gente          ╭───────────╮     │
+│  SERVIR ES GUATE.                                  │   sello   │     │
+│  Y Guate es SERVIR.                                │  (círculo │     │
+│  Trece programas para mujeres, adultos mayores,    │ completo) │     │
+│  niñez, jóvenes, productores y migrantes.          ╰───────────╯     │
+│  [ Afiliarme en línea ]   Ver los 13 programas                       │
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
-- **Móvil (360 px):** primero el titular y el botón «Afiliarme en línea»; el sello va debajo, más pequeño. El botón principal queda visible sin bajar.
-- Un solo botón principal por vista (tinta sobre cian en el hero, cian sobre papel en el resto). «Ver los 13 programas» es un enlace secundario.
-- Si llega una foto real del tractor en una comunidad, sustituye al sello como protagonista del hero.
+- **Móvil (360 px):** primero el titular y el botón; el sello va debajo, más pequeño, centrado.
+- Un solo botón principal por vista (tinta sobre cian en el hero, cian sobre papel en el resto).
+- Si llega una foto real del tractor en una comunidad, puede sustituir al sello.
+
+### Sección «¿Qué es SERVIR?» (distribución nueva)
+
+Dos columnas equilibradas, texto de tamaño normal, sin frases gigantes:
+
+```
+┌───────────────────────────────┬─────────────────────────────────────┐
+│ ¿Qué es SERVIR?               │ ■ SERVIR a la gente                 │
+│ Somos un proyecto político... │ ■ SERVIR con transparencia y ef...  │
+│ ■ Honestidad y transparencia  │ ■ SERVIR para generar resultados    │
+│ ■ Cercanía con la gente       │ ■ SERVIR con responsabilidad y ...  │
+│ ■ Resultados, no promesas     │ ■ SERVIR unidos por una mejor Gua.. │
+├───────────────────────────────┴─────────────────────────────────────┤
+│ SERVIR es trabajar hoy por el país que todos queremos mañana.       │
+├──────────────────────────────┬──────────────────────────────────────┤
+│ ▔▔▔ Nuestra misión           │ ▔▔▔ Nuestra visión                   │
+│ (panel blanco, borde cian)   │ (panel blanco, borde cian)           │
+└──────────────────────────────┴──────────────────────────────────────┘
+╔═════════════════════════════════════════════════════════════════════╗
+║ FRANJA CIAN: Menos burocracia / Más oportunidades │ Menos privile.. ║
+╚═════════════════════════════════════════════════════════════════════╝
+```
 
 ### Sección tipo: los programas
 
@@ -103,13 +120,14 @@ En móvil la ruta pasa a vertical, con las paradas apiladas. Los videos de TikTo
 ## Orden del Inicio
 
 1. Hero (acción: afiliarse).
-2. Mensaje del Secretario General (estático, con su foto cuando llegue).
-3. Qué es SERVIR, misión y visión, y el lema «Menos… / Más…» una sola vez.
+2. Mensaje del Secretario General (estático; marcador de foto 4:5 hasta que llegue).
+3. ¿Qué es SERVIR? (con misión y visión) y la franja «Menos… / Más…».
 4. Programas.
 5. Ruta del tractor.
-6. Tu propuesta (invitación breve que lleva a la página).
-7. Afíliate (repetición del llamado, con aviso de que sale a `autoafiliacion.servirgt.org`).
-8. Contacto y pie de página.
+6. Nuestra gente (cita y 2 marcadores de foto 4:5).
+7. Tu propuesta (invitación breve que lleva a la página).
+8. Afíliate (repetición del llamado, con aviso de que sale a `autoafiliacion.servirgt.org`).
+9. Contacto y pie de página.
 
 ## Las otras páginas
 
@@ -122,14 +140,15 @@ En móvil la ruta pasa a vertical, con las paradas apiladas. Los videos de TikTo
 
 Una sola secuencia: el sello del hero entra con un escalado de 250 ms con `ease-out`. Los desplegables de programas se abren con transición corta. Todo respeta `prefers-reduced-motion`. Sin parallax, sin carruseles automáticos, sin animación al hacer scroll.
 
-## Prueba de lo genérico (sección 3.2)
+## Prueba de lo genérico (sección 4.2)
 
 | Punto | ¿Funcionaría para otro rubro? | Decisión |
 |---|---|---|
 | Color | El cian es del logo; no es un valor por defecto. | Se mantiene. |
-| Tipografía | Archivo + Atkinson las elegí por el logo y por legibilidad, no por costumbre. | Se mantiene. |
-| Hero | «Titular + subtítulo + dos botones + ilustración» sí es genérico. | Se sustituye por lema enorme + sello cortado, y por una foto real cuando llegue. |
+| Tipografía | Montserrat es una elección común y sirve para cualquier rubro. | Se acepta: la pidió el coordinador, y la identidad la dan el cian, el sello y la ruta, no la letra. |
+| Hero | «Titular + subtítulo + dos botones + ilustración» sí es genérico. | Se mantiene sobrio: el lema del partido y su sello real. Una foto real del tractor lo mejoraría. |
 | Estructura | Grilla de tarjetas iguales para los programas: genérica. | Se sustituye por lista agrupada y desplegable. |
+| «¿Qué es SERVIR?» | Frases gigantes en lista: efectista y desequilibrada. | Se sustituye por dos columnas, misión y visión en paneles, y franja aparte. |
 | Línea de ruta | Solo aplica a un partido con recorrido en tractor. | Es el elemento memorable. |
 
 ## Señales de «hecho con IA» que se eliminan del sitio actual

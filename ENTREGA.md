@@ -1,19 +1,37 @@
-## Entrega
+## Entrega (versión 2)
 
-- **Qué se hizo:** sitio estático de 5 páginas (Inicio, Agenda, Tu propuesta, Transparencia y 404) con la identidad del logo (cian `#00CCFF` y tinta `#051223`), los 13 programas con sus condiciones y beneficios, formulario de propuestas con validación, pestañas de transparencia, video bajo demanda, SEO (título, descripción, Open Graph, favicon, sitemap, robots) e imagen Open Graph.
-- **Qué no se tocó:** nada fuera del alcance. No se publicó ni se conectó a ningún dominio. El portal de afiliación sigue siendo el externo `autoafiliacion.servirgt.org`. No se añadió blog, modo oscuro, chat, donaciones ni analítica.
-- **Decisiones tomadas sin confirmación (y por qué):**
-  1. Los programas se agrupan por a quién ayudan (6 grupos) y se quita la numeración 01 a 13, porque no son una secuencia. Los textos no se cambiaron. El programa 9 conserva su rótulo «A nivel institucional» en lugar de «Condiciones».
-  2. Se quitan «33K+ afiliados», «23 distritos» y «100% compromiso» (decidido por el usuario).
-  3. El carrusel automático del hero se reemplaza por contenido estático; el mensaje del Secretario General pasa a ser su propia sección.
-  4. La ruta del tractor reúne las 4 paradas de los videos del sitio actual. Se corrigió «tracktor» por «tractor» y «Nahula» por «Nahualá» (por confirmar).
-  5. El logo se usa como traza vectorial del PNG recibido, porque no hay vector. El formulario incluye «Vivo fuera de Guatemala» entre los departamentos (hay un programa para migrantes).
-  6. «Valores» (Honestidad y transparencia, Cercanía con la gente, Resultados, no promesas) quedan como lista breve en «¿Qué es SERVIR?» y no como franja aparte.
-  7. Se quitó la analítica del sitio original. El botón flotante de WhatsApp no se incluye hasta que haya un número real.
-  8. El sitio lleva `noindex`, `robots.txt` que bloquea buscadores y un aviso de «propuesta no oficial» en el pie, porque no es del partido.
-  9. El título del informe pasa a «Informe financiero, 1er trimestre 2026» (tipo oración) y la Agenda lleva el título «Agenda de SERVIR», porque la página original solo tenía «Próximos eventos».
-  10. La página «Tu propuesta» se redactó desde cero con los textos del partido en la página de inicio y sus tres pasos.
-- **Marcadores pendientes de contenido real:** ver `PENDIENTES.md`.
-- **Cómo probarlo:** `npm install && npm run build && npm run preview` y abrir http://localhost:4321. Comprobaciones hechas: sin desborde horizontal a 360, 768, 1024 y 1440 px; auditoría axe (WCAG 2.1 AA y buenas prácticas) sin violaciones en las 5 páginas; consola limpia; un solo `h1` por página; 23 pruebas de interacción (menú, programas, video, pestañas con teclado, formulario con validación y envío simulado). En móvil con 4G lenta y CPU a 1/4 de velocidad: LCP de 0.6 a 0.7 s, CLS entre 0 y 0.07, unos 50 KB transferidos por página. Se midió con Chromium local, no con PageSpeed.
-- **Lo que NO está verificado:** el formulario con un destino real (no existe todavía); Lighthouse/PageSpeed en un hosting real; el video de TikTok dentro del diálogo (el entorno de pruebas no tiene salida a TikTok); lectura con un lector de pantalla.
-- **Siguiente paso sugerido:** conseguir el logo vectorial y 2 o 3 fotos reales. Con una foto del tractor en una comunidad, el hero gana mucho.
+Segunda entrega, tras la revisión del coordinador: tipografía más sobria, nueva distribución de «¿Qué es SERVIR?», y el sitio ajustado al estándar v2 (marcadores de imagen diseñados, `IMAGENES.md`, ficha con supuestos).
+
+- **Qué se hizo:**
+  - Tipografía: Montserrat en todo el sitio, 3 pesos (400, 600, 800). Titulares más pequeños y sobrios (máximo 65 px).
+  - «¿Qué es SERVIR?» rehecha: dos columnas equilibradas con texto normal; misión y visión en dos paneles; franja cian aparte para «Menos… / Más…».
+  - Hero: el sello del logo se muestra completo a la derecha (ya no cortado por el borde).
+  - Imágenes: tres marcadores diseñados (Secretario General, 2 de «Nuestra gente») con su proporción final y la descripción de la foto. Se reemplazan copiando un archivo a `public/img/`, sin tocar código.
+  - Documentos: `CLAUDE.md` ahora trae el estándar v2 y la ficha; `IMAGENES.md` nuevo; `PLAN-VISUAL.md` y `PENDIENTES.md` actualizados.
+- **Qué no se tocó:** el contenido de los 13 programas, Agenda, Transparencia, formulario, rutas y datos. No se publicó nada.
+- **Decisiones tomadas y por qué:**
+  1. Montserrat porque el coordinador la pidió (gana sobre el estándar) y se parece a la palabra SERVIR del logo.
+  2. Una sola familia en vez de dos: con 3 pesos alcanza y se ve más sobrio.
+  3. Marcadores en lugar de stock: Unsplash y Pexels no son accesibles desde el entorno, y las 3 fotos son de personas del partido, que no deben ser stock.
+  4. La franja «Menos… / Más…» sale de «¿Qué es SERVIR?» para que esa sección respire; el contenido no cambió.
+  5. Los títulos de página de las 4 páginas siguen en tipo oración.
+- **Supuestos que el cliente debe confirmar:**
+  - Público: ciudadanía con peso rural y personas mayores.
+  - Agrupación de los 13 programas por a quién ayudan (6 grupos).
+  - «Nahualá» es el municipio (el sitio original dice «Nahula»).
+  - La dirección sin la palabra «Edificio,» (el original no traía el nombre del edificio).
+  - Se quitaron las cifras «33K+ afiliados», «23 distritos», «100% compromiso» y la analítica del sitio original.
+  - El sitio lleva `noindex` y un aviso de «propuesta no oficial» en el pie.
+- **Textos propuestos que el cliente debe validar:** subtítulo del hero («Trece programas para…»), introducción de Programas, «Recorrido del tractor» y «El tractor llegó a…», textos de «Tu propuesta» (los tres pasos y la cita son del partido; etiquetas, ayudas, errores y confirmación son míos), estados vacíos de Agenda y Transparencia, títulos y descripciones SEO, y el aviso del pie.
+- **Imágenes de stock y placeholders por reemplazar:** ver `IMAGENES.md` (3 placeholders, 0 stock).
+- **Marcadores de datos pendientes:** `[Teléfono]`, `[PDF del informe]`, `[Aviso de privacidad del partido]`. WhatsApp y redes no se muestran hasta que haya datos. Detalle en `PENDIENTES.md`.
+- **Checklist: casillas sin cumplir y por qué:**
+  - Imágenes: «ningún hueco vacío» se cumple con marcadores diseñados, pero no hay fotos reales ni stock (sin acceso a los sitios de stock).
+  - Rendimiento: LCP, CLS y peso medidos en Chromium local con 4G lenta y CPU lenta simuladas, no con PageSpeed en un hosting real; INP no medido.
+  - El formulario no se probó con un destino real (no existe todavía). Sin destino muestra un error, nunca un falso éxito.
+  - El video de TikTok dentro del diálogo no se probó (sin salida a TikTok desde el entorno).
+- **Cómo probarlo:** `npm install && npm run build && npm run preview` y abrir http://localhost:4321. Resultado de las comprobaciones: sin desborde horizontal a 360, 768, 1024 y 1440 px; auditoría axe (WCAG 2.1 AA y buenas prácticas) sin violaciones en las 5 páginas; consola limpia; un solo `h1` por página; 23 pruebas de interacción pasadas; títulos de 50 a 59 caracteres y descripciones de 142 a 148.
+- **Sugerencias fuera de alcance (no construidas):**
+  - Una foto 16:9 del tractor en una comunidad como protagonista del hero.
+  - Una foto por cada parada del recorrido.
+  - Una versión del sitio en idiomas mayas, si el partido quiere llegar a más comunidades.

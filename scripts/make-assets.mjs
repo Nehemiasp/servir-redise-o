@@ -8,8 +8,8 @@ import { join, resolve } from 'node:path';
 const raiz = resolve(import.meta.dirname, '..');
 const pub = (p) => join(raiz, 'public', p);
 const sello = readFileSync(pub('brand/sello.svg'), 'utf8');
-const fuenteTitulo = `file://${pub('fonts/archivo-800.woff2')}`;
-const fuenteCuerpo = `file://${pub('fonts/atkinson-700.woff2')}`;
+const fuenteTitulo = `file://${pub('fonts/montserrat-var.woff2')}`;
+
 const selloUri = `data:image/svg+xml;base64,${Buffer.from(sello).toString('base64')}`;
 
 const navegador = await chromium.launch({
@@ -33,14 +33,13 @@ await captura(solo(32, 'transparent'), 32, 32, pub('favicon-32.png'), true);
 await captura(solo(180, '#ffffff'), 180, 180, pub('apple-touch-icon.png'));
 
 const og = `<!doctype html><meta charset="utf-8"><style>
-@font-face{font-family:A;src:url(${fuenteTitulo})}
-@font-face{font-family:B;src:url(${fuenteCuerpo})}
-body{margin:0;width:1200px;height:630px;background:#00ccff;color:#051223;overflow:hidden;position:relative}
-.t{position:absolute;left:72px;top:96px;width:700px}
-.k{font:700 32px B;margin:0 0 20px}
-h1{font:800 112px/0.95 A;margin:0;text-transform:uppercase;letter-spacing:-1px}
-.y{font:800 48px/1.1 A;margin:28px 0 0}
-img{position:absolute;right:-150px;bottom:-120px;width:600px}
+@font-face{font-family:M;src:url(${fuenteTitulo});font-weight:400 800}
+body{margin:0;width:1200px;height:630px;background:#00ccff;color:#051223;overflow:hidden;position:relative;font-family:M}
+.t{position:absolute;left:80px;top:128px;width:640px}
+.k{font:600 28px M;margin:0 0 24px}
+h1{font:800 84px/1.05 M;margin:0;text-transform:uppercase;letter-spacing:-2px}
+.y{font:600 38px/1.2 M;margin:28px 0 0}
+img{position:absolute;right:80px;top:85px;width:460px}
 </style><div class="t"><p class="k">Partido político por el campo y la gente</p><h1>Servir es<br>Guate.</h1><p class="y">Y Guate es SERVIR.</p></div><img src="${selloUri}">`;
 await captura(og, 1200, 630, pub('og.png'));
 await navegador.close();

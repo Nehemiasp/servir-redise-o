@@ -1,0 +1,32 @@
+---
+/**
+ * Foto con marcador. Si existe public/img/<id>.(webp|avif|jpg|jpeg|png) se muestra esa imagen;
+ * si no, un marcador diseñado con la proporción final y la descripción de la foto que debe ir.
+ * Cambiar el marcador por la foto real = copiar un archivo con ese nombre, sin tocar código.
+ */
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import Icon from './Icon.astro';
+
+interface Props {
+  id: string;
+  ratio: '4/5' | '4/3' | '16/9';
+  alt: string;
+  etiqueta: string;
+  eager?: boolean;
+}
+const { id, ratio, alt, etiqueta, eager = false } = Astro.props;
+const archivo = ['webp', 'avif', 'jpg', 'jpeg', 'png']
+  .map((e) => `img/${id}.${e}`)
+  .find((f) => existsSync(resolve('public', f)));
+const [w, h] = ratio.split('/').map((n) => Number(n) * 200);
+const clase = `r-${ratio.replace('/', '-')}`;
+---
+{archivo ? (
+  <img class={`foto ${clase}`} src={`/${archivo}`} alt={alt} width={w} height={h} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+) : (
+  <div class={`foto foto--ph ${clase}`} role="img" aria-label={`Marcador de imagen. ${etiqueta}`}>
+    <Icon name="camara" />
+    <span>Foto: {etiqueta}</span>
+  </div>
+)}
