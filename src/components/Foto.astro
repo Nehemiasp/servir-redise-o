@@ -10,20 +10,24 @@ import Icon from './Icon.astro';
 
 interface Props {
   id: string;
-  ratio: '4/5' | '4/3' | '16/9';
+  ratio: '1/1' | '4/5' | '4/3' | '16/9';
+  /** Atributo `sizes` cuando existe la variante `<id>-600.webp` (se usa como srcset). */
+  sizes?: string;
   alt: string;
   etiqueta: string;
   eager?: boolean;
 }
-const { id, ratio, alt, etiqueta, eager = false } = Astro.props;
+const { id, ratio, alt, etiqueta, eager = false, sizes } = Astro.props;
 const archivo = ['webp', 'avif', 'jpg', 'jpeg', 'png']
   .map((e) => `img/${id}.${e}`)
   .find((f) => existsSync(resolve('public', f)));
 const [w, h] = ratio.split('/').map((n) => Number(n) * 200);
+const chica = archivo?.endsWith('.webp') && existsSync(resolve('public', `img/${id}-600.webp`));
+const srcset = chica ? `/img/${id}-600.webp 600w, /${archivo} 1000w` : undefined;
 const clase = `r-${ratio.replace('/', '-')}`;
 ---
 {archivo ? (
-  <img class={`foto ${clase}`} src={`/${archivo}`} alt={alt} width={w} height={h} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  <img class={`foto ${clase}`} src={`/${archivo}`} srcset={srcset} sizes={srcset ? sizes : undefined} alt={alt} width={w} height={h} loading={eager ? 'eager' : 'lazy'} decoding="async" />
 ) : (
   <div class={`foto foto--ph ${clase}`} role="img" aria-label={`Marcador de imagen. ${etiqueta}`}>
     <Icon name="camara" />

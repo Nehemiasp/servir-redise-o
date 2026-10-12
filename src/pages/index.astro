@@ -161,19 +161,27 @@ const mapa = `https://www.google.com/maps/search/?api=1&query=${encodeURICompone
   </section>
 
   <!-- 6. Nuestra gente -->
-  <section class="seccion seccion--blanca" aria-labelledby="gente-titulo">
-    <div class="wrap gente">
-      <div>
-        <h2 id="gente-titulo">Nuestra gente</h2>
-        <p class="lead mt-4">
-          El corazón de SERVIR son las familias guatemaltecas. Sus historias, su esfuerzo y sus sueños son el verdadero motor del cambio.
-        </p>
-        <blockquote>Servir es cuidar tus siembras para cosechar tus sueños.</blockquote>
-        <p>Tu esfuerzo diario, tu fe y tus madrugadas son la verdadera fuerza del país. Hagamos que el gobierno empiece a parecerse a su gente.</p>
+  <section class="seccion seccion--blanca gente" aria-labelledby="gente-titulo">
+    <div class="wrap">
+      <div class="gente-texto">
+        <div>
+          <h2 id="gente-titulo">Nuestra gente</h2>
+          <p class="lead mt-4">
+            El corazón de SERVIR son las familias guatemaltecas. Sus historias, su esfuerzo y sus sueños son el verdadero motor del cambio.
+          </p>
+        </div>
+        <div>
+          <blockquote>Servir es cuidar tus siembras para cosechar tus sueños.</blockquote>
+          <p>Tu esfuerzo diario, tu fe y tus madrugadas son la verdadera fuerza del país. Hagamos que el gobierno empiece a parecerse a su gente.</p>
+        </div>
       </div>
       <div class="gente-fotos">
-        <Foto id="gente-1" ratio="4/5" alt="Familia productora trabajando en su parcela" etiqueta="familia productora en su parcela, vertical 4:5" />
-        <Foto id="gente-2" ratio="4/5" alt="Agricultor guatemalteco cuidando su cultivo" etiqueta="agricultor en su cultivo, vertical 4:5" />
+        <figure>
+          <Foto id="gente-1" ratio="1/1" sizes="(min-width: 48rem) 590px, 100vw" alt="Gráfica de campaña: un agricultor guatemalteco siembra maíz en su parcela. Dice «Servir es cuidar tus siembras para cosechar tus sueños» y «Servir es Guate y Guate es Servir»." etiqueta="gráfica de campaña con un agricultor, cuadrada 1:1" />
+        </figure>
+        <figure>
+          <Foto id="gente-2" ratio="1/1" sizes="(min-width: 48rem) 590px, 100vw" alt="Gráfica de campaña: guatemaltecos de distintas edades y oficios. Dice «Reiniciemos Guate regresando a nuestra esencia: SERVIR» y «Servir es Guate y Guate es Servir»." etiqueta="gráfica de campaña con familias, cuadrada 1:1" />
+        </figure>
       </div>
     </div>
   </section>

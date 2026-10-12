@@ -5,13 +5,12 @@ Lo que el sitio no puede resolver solo. En el sitio aparecen como marcador `[…
 ## Contenido que el partido debe entregar
 
 - [ ] Logo en vector (SVG, AI o PDF) o PNG con fondo transparente. Hoy se usa una traza del PNG.
-- [ ] Foto del Secretario General y 2 fotos de «Nuestra gente» (nombres y proporciones en `IMAGENES.md`). Se reemplazan copiando el archivo a `public/img/`.
+- [ ] Foto del Secretario General (`public/img/secretario`, vertical 4:5; ver `IMAGENES.md`). Opcional: fotos reales para reemplazar las 2 gráficas de campaña de «Nuestra gente».
 - [ ] Foto del tractor en una comunidad. Con ella se puede reemplazar el sello del hero.
 - [ ] Enlaces de los videos de Nahualá, Jutiapa y Baja Verapaz (solo se tiene el de Izabal). Confirmar que «Nahualá» es el municipio (el sitio actual dice «Nahula»).
 - [ ] PDF del informe financiero del 1er trimestre 2026 y su peso.
 - [ ] Teléfono, WhatsApp, redes sociales. Confirmar la dirección completa (el sitio actual empieza con «Edificio,» sin nombre).
 - [ ] Aviso de privacidad para el formulario de propuestas.
-- [ ] Si existen, las dos gráficas de campaña que tenía el sitio en «Nuestra gente».
 
 ## Decisiones técnicas
 

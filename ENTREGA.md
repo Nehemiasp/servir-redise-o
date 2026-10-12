@@ -1,12 +1,14 @@
 ## Entrega (versión 2)
 
+**Actualización:** se agregaron las dos gráficas de campaña que entregó el coordinador a «Nuestra gente», en dos columnas con el texto de la sección arriba. Los marcadores de esa sección desaparecen; queda solo el del Secretario General. Las gráficas llevan texto y logo dentro de la imagen y parecen generadas con IA; se usan como material del partido (ver `IMAGENES.md`).
+
 Segunda entrega, tras la revisión del coordinador: tipografía más sobria, nueva distribución de «¿Qué es SERVIR?», y el sitio ajustado al estándar v2 (marcadores de imagen diseñados, `IMAGENES.md`, ficha con supuestos).
 
 - **Qué se hizo:**
   - Tipografía: Montserrat en todo el sitio, 3 pesos (400, 600, 800). Titulares más pequeños y sobrios (máximo 65 px).
   - «¿Qué es SERVIR?» rehecha: dos columnas equilibradas con texto normal; misión y visión en dos paneles; franja cian aparte para «Menos… / Más…».
   - Hero: el sello del logo se muestra completo a la derecha (ya no cortado por el borde).
-  - Imágenes: tres marcadores diseñados (Secretario General, 2 de «Nuestra gente») con su proporción final y la descripción de la foto. Se reemplazan copiando un archivo a `public/img/`, sin tocar código.
+  - Imágenes: un marcador diseñado (Secretario General) con su proporción final y la descripción de la foto, y las dos gráficas de campaña en «Nuestra gente». Se reemplazan copiando un archivo a `public/img/`, sin tocar código.
   - Documentos: `CLAUDE.md` ahora trae el estándar v2 y la ficha; `IMAGENES.md` nuevo; `PLAN-VISUAL.md` y `PENDIENTES.md` actualizados.
 - **Qué no se tocó:** el contenido de los 13 programas, Agenda, Transparencia, formulario, rutas y datos. No se publicó nada.
 - **Decisiones tomadas y por qué:**
@@ -23,7 +25,7 @@ Segunda entrega, tras la revisión del coordinador: tipografía más sobria, nue
   - Se quitaron las cifras «33K+ afiliados», «23 distritos», «100% compromiso» y la analítica del sitio original.
   - El sitio lleva `noindex` y un aviso de «propuesta no oficial» en el pie.
 - **Textos propuestos que el cliente debe validar:** subtítulo del hero («Trece programas para…»), introducción de Programas, «Recorrido del tractor» y «El tractor llegó a…», textos de «Tu propuesta» (los tres pasos y la cita son del partido; etiquetas, ayudas, errores y confirmación son míos), estados vacíos de Agenda y Transparencia, títulos y descripciones SEO, y el aviso del pie.
-- **Imágenes de stock y placeholders por reemplazar:** ver `IMAGENES.md` (3 placeholders, 0 stock).
+- **Imágenes de stock y placeholders por reemplazar:** ver `IMAGENES.md` (1 placeholder, 2 gráficas del partido, 0 stock).
 - **Marcadores de datos pendientes:** `[Teléfono]`, `[PDF del informe]`, `[Aviso de privacidad del partido]`. WhatsApp y redes no se muestran hasta que haya datos. Detalle en `PENDIENTES.md`.
 - **Checklist: casillas sin cumplir y por qué:**
   - Imágenes: «ningún hueco vacío» se cumple con marcadores diseñados, pero no hay fotos reales ni stock (sin acceso a los sitios de stock).
